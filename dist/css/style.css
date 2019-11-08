@@ -140,117 +140,6 @@
   background: rgba(43, 43, 43, 0.87);
 }
 
-/* Headings */
-h1, h2, h3 {
-  margin: 0;
-  font-weight: 400;
-}
-
-/* Body */
-body {
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.5;
-  overflow-x: hidden;
-}
-
-/* Menu button */
-.menu-btn {
-  position: fixed;
-  z-index: 3;
-  right: 35px;
-  top: 35px;
-  cursor: pointer;
-  transition: all 0.5s ease-out;
-}
-.menu-btn .btn-line {
-  width: 28px;
-  height: 2px;
-  margin: 0 0 5px 0;
-  background: #fff;
-  transition: all 0.2s ease-out;
-}
-.menu-btn .btn-line.dark {
-  background: #444;
-}
-.menu-btn.open .btn-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 3px);
-}
-.menu-btn.open .btn-line:nth-child(2) {
-  opacity: 0;
-}
-.menu-btn.open .btn-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -5px);
-}
-
-/* Menu */
-.menu {
-  position: fixed;
-  width: 10rem;
-  height: 10rem;
-  right: 0px;
-  bottom: 10rem;
-  color: #fff;
-}
-.menu ul {
-  position: absolute;
-  padding-left: 0px;
-  right: 0;
-  left: 0;
-  list-style-type: none;
-}
-.menu ul li {
-  transition: all 0.3s ease-out;
-  margin-top: 1.5rem;
-  padding-left: 41px;
-}
-.menu ul li.current, .menu ul li.current:hover {
-  transition: all 0.3s ease-out;
-  padding-left: 20px;
-  font-weight: 500;
-}
-.menu ul li.dark {
-  color: #444;
-}
-.menu ul li.close {
-  transition: all 0.1s ease-out;
-  padding-left: 80px;
-  opacity: 0;
-}
-.menu ul li:hover {
-  transition: all 0.3s ease-out;
-  padding-left: 35px;
-  font-weight: 500;
-}
-.menu ul li:hover + .link-line {
-  width: 125px;
-  transition: all 0.3s ease-out;
-}
-.menu ul li.current:hover + .link-line {
-  width: 140px;
-  transition: all 0.3s ease-out;
-}
-.menu ul .link-line {
-  position: absolute;
-  right: 0;
-  width: 120px;
-  height: 1px;
-  background: #fff;
-  transition: all 0.3s ease-out;
-}
-.menu ul .link-line.current {
-  width: 140px;
-  transition: all 0.3s ease-out;
-}
-.menu ul .link-line.dark {
-  background: #444;
-  transition: all 0.3s ease-out;
-}
-.menu ul .link-line.close {
-  width: 0;
-  transition: all 0.3s ease-out;
-}
-
 /* Overlay menu for smaller screens */
 #menu-overlay {
   position: fixed;
@@ -425,6 +314,117 @@ body {
   width: 57%;
   top: 70%;
   right: 0;
+}
+
+/* Headings */
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Body */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Menu button */
+.menu-btn {
+  position: fixed;
+  z-index: 3;
+  right: 35px;
+  top: 35px;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+.menu-btn .btn-line {
+  width: 28px;
+  height: 2px;
+  margin: 0 0 5px 0;
+  background: #fff;
+  transition: all 0.2s ease-out;
+}
+.menu-btn .btn-line.dark {
+  background: #444;
+}
+.menu-btn.open .btn-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 3px);
+}
+.menu-btn.open .btn-line:nth-child(2) {
+  opacity: 0;
+}
+.menu-btn.open .btn-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -5px);
+}
+
+/* Menu */
+.menu {
+  position: fixed;
+  width: 10rem;
+  height: 10rem;
+  right: 0px;
+  bottom: 10rem;
+  color: #fff;
+}
+.menu ul {
+  position: absolute;
+  padding-left: 0px;
+  right: 0;
+  left: 0;
+  list-style-type: none;
+}
+.menu ul li {
+  transition: all 0.3s ease-out;
+  margin-top: 1.5rem;
+  padding-left: 41px;
+}
+.menu ul li.current, .menu ul li.current:hover {
+  transition: all 0.3s ease-out;
+  padding-left: 20px;
+  font-weight: 500;
+}
+.menu ul li.dark {
+  color: #444;
+}
+.menu ul li.close {
+  transition: all 0.1s ease-out;
+  padding-left: 80px;
+  opacity: 0;
+}
+.menu ul li:hover {
+  transition: all 0.3s ease-out;
+  padding-left: 35px;
+  font-weight: 500;
+}
+.menu ul li:hover + .link-line {
+  width: 125px;
+  transition: all 0.3s ease-out;
+}
+.menu ul li.current:hover + .link-line {
+  width: 140px;
+  transition: all 0.3s ease-out;
+}
+.menu ul .link-line {
+  position: absolute;
+  right: 0;
+  width: 120px;
+  height: 1px;
+  background: #fff;
+  transition: all 0.3s ease-out;
+}
+.menu ul .link-line.current {
+  width: 140px;
+  transition: all 0.3s ease-out;
+}
+.menu ul .link-line.dark {
+  background: #444;
+  transition: all 0.3s ease-out;
+}
+.menu ul .link-line.close {
+  width: 0;
+  transition: all 0.3s ease-out;
 }
 
 /*==================================================================================== 

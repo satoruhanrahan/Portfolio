@@ -21,17 +21,14 @@ $(document).ready(function () {
   const contactLine = document.querySelector('#contactLine');
   //overlay menu
   const menuOverlay = document.querySelector('#menu-overlay');
-  // const navItems2 = document.querySelectorAll('.nav-item2');
-  // const linkLines2 = document.querySelectorAll('.link-line2');
   const homeLink2 = document.querySelector('#homeLink2');
   const projectsLink2 = document.querySelector('#projectsLink2');
-  const aboutMeLink2 = document.querySelector('#aboutMeLink2');
-  const contactLink2 = document.querySelector('#contactLink2');
+  // const aboutMeLink2 = document.querySelector('#aboutMeLink2');
+  // const contactLink2 = document.querySelector('#contactLink2');
   const homeLine2 = document.querySelector('#homeLine2');
   const projectsLine2 = document.querySelector('#projectsLine2');
-  const aboutMeLine2 = document.querySelector('#aboutMeLine2');
-  const contactLine2 = document.querySelector('#contactLine2');
-  
+  // const aboutMeLine2 = document.querySelector('#aboutMeLine2');
+  // const contactLine2 = document.querySelector('#contactLine2');
   
   // Menu Button
   let showMenu = false;
@@ -48,10 +45,17 @@ $(document).ready(function () {
       if(document.scrollingElement.scrollTop < 315){
         homeLink2.classList.add('current');
         homeLine2.classList.add('current');
+        homeLink.classList.add('current');
+        homeLine.classList.add('current');
       }
+      //if in projects section
       else if (document.scrollingElement.scrollTop >= 315){
         projectsLink2.classList.add('current');
         projectsLine2.classList.add('current');
+        projectsLink.classList.add('current');
+        projectsLine.classList.add('current');
+        //make button white
+        btnLines.forEach(item => item.classList.remove('dark'));
       }
       // Set Menu State
       showMenu = true;
@@ -60,6 +64,10 @@ $(document).ready(function () {
       navItems.forEach(item => item.classList.add('close'));
       linkLines.forEach(item => item.classList.add('close'));
       menuOverlay.classList.add('close');
+      //if in projects section
+      if (document.scrollingElement.scrollTop >= 583){
+        btnLines.forEach(item => item.classList.add('dark'));
+      }
       // Set Menu State
       showMenu = false;
     }
@@ -85,6 +93,10 @@ $(document).ready(function () {
   });
 
   //Animations 
+  if(document.scrollingElement.scrollTop > 20){
+    $("#myProjectsHeader").addClass('not-visible');
+    $("#myProjectsLine").addClass('not-visible');
+  }
   const callback = function (entries) {
     entries.forEach(entry => {
       entry.target.classList.toggle("not-visible");
