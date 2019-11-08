@@ -1,3 +1,9 @@
+/*==================================================================================== 
+    Author: Alex Satoru Hanrahan
+    Created: 08/11/19
+    Last Edited: 08/11/19
+=====================================================================================*/
+
 /* Overlay menu for smaller screens */
 #menu-overlay{
     position: fixed;
@@ -10,6 +16,7 @@
     left: 0;
     transition: all 0.3s ease-out;
     &.close{
+        // width: 0;
         transition: all 0.3s ease-out;
         left: 100vw;
     }

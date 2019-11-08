@@ -4,6 +4,8 @@
     Last Edited: 06/11/19
 =====================================================================================*/
 
+$secondary-color: #f09865;
+
 /* Projects Section */
 #projects{
     height: 200vh;
@@ -56,5 +58,53 @@
         height: 20rem;
         width: 15rem;
         background: rgba(43, 43, 43, 0.87); 
+        text-align: center;
+        align-content: center;
+        color: #fff;
+        p{
+            margin-top: 0.7rem;
+            margin-bottom: 0.7rem;
+            color: #fff;
+            font-size: 1.5rem;
+            text-align: center;
+            font-weight: 500;
+        }
+        img{
+            height: 10rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            // border: rgba(43, 43, 43, 0.87) 2px solid;
+        }
+        div{
+            border: #fff 1px solid;
+            width: 72%;
+            margin: auto;
+            margin-top: 0.6rem;
+            align-items: center;
+            justify-content: center;
+            svg{
+                height: 1.1rem;
+            }
+        }
+        div:hover{
+            border: $secondary-color 1px solid;
+            background: rgba(43, 43, 43, 0.87); 
+            // font-weight: 500;
+        }
+    }
+    .card:hover{
+        background: rgba(59, 59, 59, 0.87); 
+        // p{
+        //     color: $secondary-color;
+        // }
+        // border-bottom: $secondary-color 4px solid;
+        // border-left: rgba(43, 43, 43, 0.87) 1px solid;
+        // border-right: rgba(43, 43, 43, 0.87) 1px solid;
+        // border-top: $secondary-color 3px solid;
+        transition: all 0.2s ease-out;
+        // img{
+        //     border: $secondary-color 2px solid;
+        // }
     }
 }

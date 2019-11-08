@@ -79,7 +79,7 @@
   border: #f09865 2px solid;
   transition: all 0.5s ease-out;
 }
-#home #projectsBtn:hover i {
+#home #projectsBtn:hover svg {
   transition: all 0.2s ease-out;
   transform: rotate(90deg) translate(1px, 2px);
 }
@@ -138,8 +138,49 @@
   height: 20rem;
   width: 15rem;
   background: rgba(43, 43, 43, 0.87);
+  text-align: center;
+  align-content: center;
+  color: #fff;
+}
+#projects .card p {
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+#projects .card img {
+  height: 10rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#projects .card div {
+  border: #fff 1px solid;
+  width: 72%;
+  margin: auto;
+  margin-top: 0.6rem;
+  align-items: center;
+  justify-content: center;
+}
+#projects .card div svg {
+  height: 1.1rem;
+}
+#projects .card div:hover {
+  border: #f09865 1px solid;
+  background: rgba(43, 43, 43, 0.87);
+}
+#projects .card:hover {
+  background: rgba(59, 59, 59, 0.87);
+  transition: all 0.2s ease-out;
 }
 
+/*==================================================================================== 
+    Author: Alex Satoru Hanrahan
+    Created: 08/11/19
+    Last Edited: 08/11/19
+=====================================================================================*/
 /* Overlay menu for smaller screens */
 #menu-overlay {
   position: fixed;
@@ -316,6 +357,15 @@
   right: 0;
 }
 
+html {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+}
+
 /* Headings */
 h1, h2, h3 {
   margin: 0;
@@ -328,6 +378,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
   overflow-x: hidden;
+  width: 100vw;
 }
 
 /* Menu button */
@@ -391,7 +442,7 @@ body {
 .menu ul li.close {
   transition: all 0.1s ease-out;
   padding-left: 80px;
-  opacity: 0;
+  visibility: hidden;
 }
 .menu ul li:hover {
   transition: all 0.3s ease-out;
@@ -502,6 +553,10 @@ body {
     display: grid;
     grid-template-columns: 1fr;
   }
+  #projects .card div {
+    border: #f09865 1px solid;
+    background: rgba(43, 43, 43, 0.87);
+  }
   #projects .sm-heading.not-visible {
     transform: translate3d(-300px, 0, 0);
   }
@@ -536,6 +591,10 @@ body {
   #projects #projectCards {
     display: grid;
     grid-template-columns: 1fr;
+  }
+  #projects .card div {
+    border: #f09865 1px solid;
+    background: rgba(43, 43, 43, 0.87);
   }
   #projects .sm-heading.not-visible {
     transform: translate3d(-200px, 0, 0);

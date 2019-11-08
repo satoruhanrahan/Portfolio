@@ -89,6 +89,13 @@ $secondary-color: #f09865;
         #projectCards{
             display: grid;
             grid-template-columns: 1fr;
+            
+        }
+        .card{
+            div{
+                border: $secondary-color 1px solid;
+                background: rgba(43, 43, 43, 0.87); 
+            }
         }
         .sm-heading {
             &.not-visible{
@@ -132,6 +139,12 @@ $secondary-color: #f09865;
         #projectCards{
             display: grid;
             grid-template-columns: 1fr;
+        }
+        .card{
+            div{
+                border: $secondary-color 1px solid;
+                background: rgba(43, 43, 43, 0.87); 
+            }
         }
         .sm-heading {
             &.not-visible{

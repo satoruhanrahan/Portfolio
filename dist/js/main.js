@@ -21,6 +21,7 @@ $(document).ready(function () {
   const contactLine = document.querySelector('#contactLine');
   //overlay menu
   const menuOverlay = document.querySelector('#menu-overlay');
+  const navItems2 = document.querySelectorAll('.nav-item2');
   const homeLink2 = document.querySelector('#homeLink2');
   const projectsLink2 = document.querySelector('#projectsLink2');
   // const aboutMeLink2 = document.querySelector('#aboutMeLink2');
@@ -34,13 +35,16 @@ $(document).ready(function () {
   let showMenu = false;
   menuBtn.addEventListener('click', toggleMenu);
   function toggleMenu() {
+    //open menu if closed
     if (!showMenu) {
       menuBtn.classList.add('open');
       navItems.forEach(item => item.classList.remove('close'));
+      navItems2.forEach(item => item.classList.remove('close'));
       linkLines.forEach(item => item.classList.remove('close'));
       menuOverlay.classList.remove('close');
       //set current link in overlay menu
       navItems.forEach(item => item.classList.remove('current'));
+      navItems2.forEach(item => item.classList.remove('current'));
       linkLines.forEach(item => item.classList.remove('current'));
       if(document.scrollingElement.scrollTop < 315){
         homeLink2.classList.add('current');
@@ -54,14 +58,23 @@ $(document).ready(function () {
         projectsLine2.classList.add('current');
         projectsLink.classList.add('current');
         projectsLine.classList.add('current');
-        //make button white
-        btnLines.forEach(item => item.classList.remove('dark'));
+        //make button white if in project section
+        // if (document.scrollingElement.scrollTop >= 583){
+        //   btnLines.forEach(item => item.classList.add('dark'));
+        // }
+        if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
+          btnLines.forEach(item => item.classList.add('dark'));
+        } else {
+          btnLines.forEach(item => item.classList.remove('dark'));
+        }
       }
       // Set Menu State
       showMenu = true;
+    //close menu if open
     } else {
       menuBtn.classList.remove('open');
       navItems.forEach(item => item.classList.add('close'));
+      navItems2.forEach(item => item.classList.add('close'));
       linkLines.forEach(item => item.classList.add('close'));
       menuOverlay.classList.add('close');
       //if in projects section
@@ -108,10 +121,19 @@ $(document).ready(function () {
     observer.observe(target);
   });
 
+  //close overlay menu after link clicked
+  navItems2.forEach(function(item){
+    item.onclick = function(){
+      menuBtn.classList.remove('open');
+      menuOverlay.classList.add('close');
+      showMenu = false;
+    }
+  });
+
   //Change menu and button on scroll
   window.onscroll = function() {
     let position = document.scrollingElement.scrollTop;
-    //Menu button   //if in projects section and overlay menu is hidden or closed
+    //Menu button   //make button dark if in projects section and overlay menu is hidden or closed
     if(position > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
       btnLines.forEach(item => item.classList.add('dark'));
     } else {
