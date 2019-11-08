@@ -1,0 +1,329 @@
+/*==================================================================================== 
+    Author: Alex Satoru Hanrahan
+    Created: 03/11/19
+    Last Edited: 06/11/19
+=====================================================================================*/
+
+$secondary-color: #f09865;
+
+@import 'config';
+@import 'home';
+@import 'projects';
+
+/* Headings */
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 400; 
+}
+
+/* Body */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5; 
+    overflow-x: hidden;
+}
+
+/* Menu button */
+.menu-btn {
+    position: fixed;
+    z-index: 3;
+    right: 35px;
+    top: 35px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    .btn-line {
+        width: 28px;
+        height: 2px;
+        margin: 0 0 5px 0;
+        background: #fff;
+        transition: all 0.2s ease-out;
+        //Change color on scroll
+        &.dark{
+            background: #444;
+        }
+    }
+    // Rotate Into X With Menu Lines
+    &.open {
+        // transform: rotate(180deg);
+        .btn-line {
+            // Line 1 - Rotate
+            &:nth-child(1){
+                transform: rotate(45deg) translate(5px, 3px);
+            }
+            // Line 2 - Hide
+            &:nth-child(2){
+                opacity: 0;    
+            }
+            // Line 3 - Rotate
+            &:nth-child(3){
+                transform: rotate(-45deg) translate(7px, -5px);
+            }
+        }
+    }
+}
+
+/* Menu */
+.menu{
+    position: fixed;
+    width: 10rem;
+    height: 10rem;
+    right: 0px;
+    // top: 19rem;
+    bottom: 10rem;
+    // display: inline-block;
+    color: #fff;
+    ul{
+        position: absolute;
+        padding-left: 0px;
+        right: 0;
+        left: 0;
+        list-style-type: none;
+        li{
+            transition: all 0.3s ease-out;
+            margin-top: 1.5rem;
+            padding-left: 41px;
+            &.current, &.current:hover{
+                transition: all 0.3s ease-out;
+                padding-left: 20px;
+                font-weight: 500;
+            }
+            &.dark{
+                color: #444;
+            }
+            &.close{
+                transition: all 0.1s ease-out;
+                padding-left: 80px;
+                opacity: 0;
+            }
+            &:hover{
+                transition: all 0.3s ease-out;
+                padding-left: 35px;
+                font-weight: 500;
+            }
+            &:hover + .link-line {
+                width: 125px;
+                transition: all 0.3s ease-out;
+            }
+            &.current:hover + .link-line {
+                width: 140px;
+                transition: all 0.3s ease-out;
+            }
+        }
+        .link-line{
+            position: absolute;
+            right: 0;
+            width: 120px;
+            height: 1px;
+            background: #fff;
+            transition: all 0.3s ease-out;
+            &.current {
+                width: 140px;
+                transition: all 0.3s ease-out;
+            }
+            &.dark{
+                background: #444;
+                transition: all 0.3s ease-out;
+            }
+            &.close{
+                width: 0;
+                transition: all 0.3s ease-out;
+            }
+        }
+    }
+}
+
+/* Overlay menu for smaller screens */
+#menu-overlay{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #444;
+    color: #fff;
+    opacity: 0.95;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease-out;
+    &.close{
+        transition: all 0.3s ease-out;
+        left: 100vw;
+    }
+    ul{
+        width: 100%;
+        height: 100%;
+        padding-top: 0;
+        padding-left: 0;
+        position: relative;
+        list-style-type: none;
+        li{
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            padding: 1rem;
+            font-size: 2rem; 
+            font-weight: 300;
+            opacity: 1;
+            transition: all 0.3s ease-out;
+            //links 
+            &#homeLink2{
+                // transform: translate(-57%, -220%);
+                transition: all 0.3s 0.15s ease-out;
+                position: absolute;
+                width: 52%;
+                top: 28%;
+                left: 74%;
+            }
+            &#projectsLink2{
+                // transform: translate(-19%, -120%);
+                transition: all 0.3s 0.10s ease-out;
+                position: absolute;
+                width: 52%;
+                top: 41%;
+                left: 74%;
+            }
+            &#aboutMeLink2{
+                // transform: translate(-15%, -20%);
+                transition: all 0.3s 0.05s ease-out;
+                position: absolute;
+                width: 52%;
+                top: 54%;
+                left: 74%;
+            }
+            &#contactLink2{
+                // transform: translate(-17%, 80%);
+                transition: all 0.3s ease-out;
+                position: absolute;
+                width: 52%;
+                top: 67%;
+                left: 74%;
+            }
+            //currently open links
+            &#homeLink2.current{
+                // transform: translate(-57%, -220%);
+                transition: all 0.3s 0.15s ease-out;
+                font-weight: 500;
+                position: absolute;
+                width: 52%;
+                top: 29%;
+                left: 69%;
+            }
+            &#projectsLink2.current{
+                // transform: translate(-49%, -120%);
+                transition: all 0.3s 0.10s ease-out;
+                font-weight: 500;
+                position: absolute;
+                width: 52%;
+                top: 41%;
+                left: 69%;
+            }
+            &#aboutMeLink2.current{
+                // transform: translate(-38%, -20%);
+                transition: all 0.3s 0.05s ease-out;
+                font-weight: 500;
+                position: absolute;
+                width: 52%;
+                top: 53%;
+                left: 69%;
+            }
+            &#contactLink2.current{
+                // transform: translate(-47%, 80%);
+                transition: all 0.3s ease-out;
+                font-weight: 500;
+                position: absolute;
+                width: 52%;
+                top: 65%;
+                left: 69%;
+            }
+            //links for menu closed
+            &.close#homeLink2{
+                // opacity: 0.1;
+                transform: translate(-1250%, -200%);
+                transition: all 0s ease-out;
+            }
+            &.close#projectsLink2{
+                // opacity: 0.1;
+                transform: translate(-1250%, -120%);
+                transition: all 0s ease-out;
+            }
+            &.close#aboutMeLink2{
+                // opacity: 0.1;
+                transform: translate(-1250%, -40%);
+                transition: all 0s ease-out;
+            }
+            &.close#contactLink2{
+                // opacity: 0.1;
+                transform: translate(-1250%, 40%);
+                transition: all 0s ease-out;
+            }
+        }
+        //lines under currently open links
+        #homeLine2{
+            position: absolute;
+            transition: all 0.3s 0.15s ease-out;
+            border: #fff 1px solid;
+            width: 52%;
+            top: 32%;
+            right: 0;
+        }
+        #projectsLine2{
+            position: absolute;
+            transition: all 0.3s 0.15s ease-out;
+            border: #fff 1px solid;
+            width: 52%;
+            top: 45%;
+            right: 0;
+        }
+        #aboutMeLine2{
+            position: absolute;
+            transition: all 0.3s 0.15s ease-out;
+            border: #fff 1px solid;
+            width: 52%;
+            top: 57%;
+            right: 0;
+        }
+        #contactLine2{
+            position: absolute;
+            transition: all 0.3s 0.15s ease-out;
+            border: #fff 1px solid;
+            width: 52%;
+            top: 70%;
+            right: 0;
+        }
+        //lines under current links
+        #homeLine2.current{
+            position: absolute;
+            transition: all 0.3s 0.15s ease-out;
+            border: #fff 1px solid;
+            width: 57%;
+            top: 32%;
+            right: 0;
+        }
+        #projectsLine2.current{
+            position: absolute;
+            transition: all 0.3s 0.15s ease-out;
+            border: #fff 1px solid;
+            width: 57%;
+            top: 45%;
+            right: 0;
+        }
+        #aboutMeLine2.current{
+            position: absolute;
+            transition: all 0.3s 0.15s ease-out;
+            border: #fff 1px solid;
+            width: 57%;
+            top: 57%;
+            right: 0;
+        }
+        #contactLine2.current{
+            position: absolute;
+            transition: all 0.3s 0.15s ease-out;
+            border: #fff 1px solid;
+            width: 57%;
+            top: 70%;
+            right: 0;
+        }
+    }
+}
+
+@import 'mobile';

@@ -1,0 +1,155 @@
+/*==================================================================================== 
+    Author: Alex Satoru Hanrahan
+    Created: 03/11/19
+    Last Edited: 06/11/19
+=====================================================================================*/
+
+$secondary-color: #f09865;
+
+/* Widescreens */
+@include mediaXl {
+    //home section
+    #home{
+        .lg-heading{
+            font-size: 4rem; 
+        }
+    }
+    #projectsBtn{
+        margin-top: 2rem;
+    }
+
+    //projects section
+    #projects{
+        #projectCards{
+            margin-left: 10rem;
+            margin-right: 12rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    #menu-overlay{
+        position: absolute;
+        visibility: hidden;
+    }
+}
+
+/* Desktops & Laptops */
+@include mediaLg {
+    //home section
+    #home{
+        .lg-heading{
+            font-size: 4rem; 
+        }
+    }
+    #projectsBtn{
+        margin-top: 2rem;
+    }
+
+    //projects section
+    #projects{
+        #projectCards{
+            margin-left: 10rem;
+            margin-right: 12rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    #menu-overlay{
+        position: absolute;
+        visibility: hidden;
+    }
+}
+
+/* Tablets & Small Laptops */
+@include mediaMd {
+    //home section
+    #home{
+        padding-left: 0;
+        .lg-heading{
+            font-size: 2rem; 
+        }
+        #projectsBtn{
+            background: rgba(43, 43, 43, 0.87);
+            border: $secondary-color 2px solid;
+            margin-top: 2rem;
+            i{
+                transform: rotate(90deg) translate(1px, 2px);
+            }
+        }
+    }
+    main {
+        // padding-right: 4rem;
+        align-items: center;
+        text-align: center;
+    }
+    
+
+    //projects section
+    #projects{
+        #projectCards{
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        .sm-heading {
+            &.not-visible{
+                transform: translate3d(-300px, 0, 0);
+            }
+        }
+    }
+
+    //Menu
+    .menu{
+        position: absolute;
+        visibility: hidden;
+    }
+}
+
+/* Smartphones */
+@include mediaSm{
+    //home section
+    #home{
+        padding-left: 0;
+        .lg-heading{
+            font-size: 2rem; 
+        }
+        #projectsBtn{
+            background: rgba(43, 43, 43, 0.87);
+            border: $secondary-color 2px solid;
+            margin-top: 2rem;
+            i{
+                transform: rotate(90deg) translate(1px, 2px);
+            }
+        }
+    }
+    main {
+        // padding-right: 4rem;
+        align-items: center;
+        text-align: center;
+    }
+
+    //projects section
+    #projects{
+        #projectCards{
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        .sm-heading {
+            &.not-visible{
+                transform: translate3d(-200px, 0, 0);
+            }
+        }
+        .underline{
+            &.not-visible{
+                transform: translate3d(100px, 0, 0);
+            }
+        }
+    }
+    
+    //Menu
+    .menu{
+        position: absolute;
+        visibility: hidden;
+    }
+}
+
+
