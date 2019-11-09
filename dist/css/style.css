@@ -194,8 +194,18 @@
   transition: all 0.3s ease-out;
 }
 #menu-overlay.close {
+  width: 0;
   transition: all 0.3s ease-out;
-  left: 100vw;
+}
+#menu-overlay.close ul {
+  width: 0;
+}
+#menu-overlay.close ul li {
+  width: 0;
+  visibility: hidden;
+}
+#menu-overlay.close ul div {
+  width: 0;
 }
 #menu-overlay ul {
   width: 100%;
@@ -440,9 +450,10 @@ body {
   color: #444;
 }
 .menu ul li.close {
-  transition: all 0.1s ease-out;
   padding-left: 80px;
   visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-out;
 }
 .menu ul li:hover {
   transition: all 0.3s ease-out;
@@ -476,6 +487,7 @@ body {
 .menu ul .link-line.close {
   width: 0;
   transition: all 0.3s ease-out;
+  width: 0;
 }
 
 /*==================================================================================== 
@@ -552,6 +564,7 @@ body {
   #projects #projectCards {
     display: grid;
     grid-template-columns: 1fr;
+    padding-top: 1rem;
   }
   #projects .card div {
     border: #f09865 1px solid;
@@ -591,6 +604,7 @@ body {
   #projects #projectCards {
     display: grid;
     grid-template-columns: 1fr;
+    padding-top: 1rem;
   }
   #projects .card div {
     border: #f09865 1px solid;

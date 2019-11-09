@@ -89,7 +89,7 @@ $secondary-color: #f09865;
         #projectCards{
             display: grid;
             grid-template-columns: 1fr;
-            
+            padding-top: 1rem;
         }
         .card{
             div{
@@ -139,6 +139,7 @@ $secondary-color: #f09865;
         #projectCards{
             display: grid;
             grid-template-columns: 1fr;
+            padding-top: 1rem;
         }
         .card{
             div{

@@ -108,9 +108,12 @@ body {
                 color: #444;
             }
             &.close{
-                transition: all 0.1s ease-out;
+                // transition: all 0.1s ease-out;
                 padding-left: 80px;
                 visibility: hidden;
+                // width: 0;
+                opacity: 0;
+                transition: all 0.3s ease-out;
             }
             &:hover{
                 transition: all 0.3s ease-out;
@@ -144,6 +147,7 @@ body {
             &.close{
                 width: 0;
                 transition: all 0.3s ease-out;
+                width: 0;
             }
         }
     }
