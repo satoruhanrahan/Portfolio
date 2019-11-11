@@ -30,7 +30,17 @@ $(document).ready(function () {
   const projectsLine2 = document.querySelector('#projectsLine2');
   // const aboutMeLine2 = document.querySelector('#aboutMeLine2');
   // const contactLine2 = document.querySelector('#contactLine2');
+  const lngBtn = document.querySelector('#languageBtn');
+  const engBtn = document.querySelector('#englishBtn');
+  const jpnBtn = document.querySelector('#japaneseBtn');
   
+  //Menu button   //make button dark if in projects section and overlay menu is hidden or closed
+  if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
+    btnLines.forEach(item => item.classList.add('dark'));
+  } else {
+    btnLines.forEach(item => item.classList.remove('dark'));
+  }
+
   // Menu Button
   let showMenu = false;
   menuBtn.addEventListener('click', toggleMenu);
@@ -46,13 +56,14 @@ $(document).ready(function () {
       navItems.forEach(item => item.classList.remove('current'));
       navItems2.forEach(item => item.classList.remove('current'));
       linkLines.forEach(item => item.classList.remove('current'));
+      //if in home section
       if(document.scrollingElement.scrollTop < 315){
         homeLink2.classList.add('current');
         homeLine2.classList.add('current');
         homeLink.classList.add('current');
         homeLine.classList.add('current');
       }
-      //if in projects section
+      //else if in projects section
       else if (document.scrollingElement.scrollTop >= 315){
         projectsLink2.classList.add('current');
         projectsLine2.classList.add('current');
@@ -62,12 +73,23 @@ $(document).ready(function () {
         // if (document.scrollingElement.scrollTop >= 583){
         //   btnLines.forEach(item => item.classList.add('dark'));
         // }
+        //make button dark if overlay menu is open
         if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
           btnLines.forEach(item => item.classList.add('dark'));
         } else {
           btnLines.forEach(item => item.classList.remove('dark'));
         }
+        //make menu dark if open in project section
+        if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069)) {
+          navItems.forEach(item => item.classList.add('dark'));
+          linkLines.forEach(item => item.classList.add('dark'));
+        } else {
+          navItems.forEach(item => item.classList.remove('dark'));
+          linkLines.forEach(item => item.classList.remove('dark'));
+        }
       }
+      //show language button
+      lngBtn.classList.remove('close');
       // Set Menu State
       showMenu = true;
     //close menu if open
@@ -81,10 +103,22 @@ $(document).ready(function () {
       if (document.scrollingElement.scrollTop >= 583){
         btnLines.forEach(item => item.classList.add('dark'));
       }
+      //hide language button
+      lngBtn.classList.add('close');
       // Set Menu State
       showMenu = false;
     }
   }
+
+  //language button
+  let english = true;
+  $("#languageBtn").on('click', function (event) {
+    if(english){
+      engBtn.classList.remove('current');
+      jpnBtn.classList.add('current');
+    }
+    
+  });
 
   // Add smooth scrolling for links
   $("a").on('click', function (event) {
@@ -126,18 +160,27 @@ $(document).ready(function () {
     item.onclick = function(){
       menuBtn.classList.remove('open');
       menuOverlay.classList.add('close');
+      navItems2.forEach(item => item.classList.add('close'));
+      linkLines.forEach(item => item.classList.add('close'));
       showMenu = false;
     }
   });
 
-  //Change menu and button on scroll
+  //Change menu and button colour on scroll
   window.onscroll = function() {
     let position = document.scrollingElement.scrollTop;
-    //Menu button   //make button dark if in projects section and overlay menu is hidden or closed
+    //Menu button   //make menu button dark if in projects section and overlay menu is hidden or closed
     if(position > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
       btnLines.forEach(item => item.classList.add('dark'));
     } else {
       btnLines.forEach(item => item.classList.remove('dark'));
+    }
+    console.log($(window).height()) //510 //1.22549019608
+    //make language button dark if in projects section and overlay menu is hidden or closed
+    if(position > ($(window).height() / 1.22549019608) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
+      lngBtn.classList.add('dark');
+    } else {
+      lngBtn.classList.remove('dark');
     }
     //contact link
     if(position > 130){

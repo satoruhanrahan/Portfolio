@@ -391,6 +391,60 @@ body {
   width: 100vw;
 }
 
+/* Language Button */
+#languageBtn {
+  position: fixed;
+  right: 1.3rem;
+  top: 6rem;
+  z-index: 3;
+  width: fit-content;
+  border: #fff 2px solid;
+  color: #fff;
+  background: rgba(43, 43, 43, 0.87);
+  font-size: 0.9rem;
+  border-radius: 3px;
+  padding: 2px;
+  transition: opacity 0.3s 0.15s ease-out;
+}
+#languageBtn #engBtn {
+  float: left;
+  width: 3rem;
+  text-align: center;
+  margin: 0;
+  padding: 4px;
+}
+#languageBtn #jpnBtn {
+  float: right;
+  width: 3rem;
+  text-align: center;
+  margin: 0;
+  padding: 4px;
+}
+#languageBtn #lngSwitch {
+  position: absolute;
+  border: #fff 1px solid;
+  border-radius: 3px;
+  background: rgba(73, 73, 73, 0.5);
+  height: 1.7rem;
+  width: 3.3rem;
+  z-index: -1;
+  right: 2px;
+}
+#languageBtn.close {
+  visibility: hidden;
+  opacity: 0;
+}
+#languageBtn.dark {
+  background: #fff;
+  border: rgba(43, 43, 43, 0.87) 2px solid;
+  color: #444;
+  transition: opacity 0.3s 0.15s ease-out;
+}
+#languageBtn.dark #englishBtn {
+  color: #fff;
+  border: rgba(43, 43, 43, 0.7) 2px solid;
+}
+
 /* Menu button */
 .menu-btn {
   position: fixed;
