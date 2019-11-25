@@ -79,60 +79,24 @@ body {
         height: 1.7rem;
         width: 3.3rem;
         z-index: -1;
-        right: 2px;
+        transition: margin-left 0.3s ease-out;
+        &.japanese{
+            margin-left: 3.58rem;
+            transition: margin-left 0.3s ease-out;
+        }
     }
-    // #englishBtn{
-    //     padding: 4px;
-    //     width: 3rem;
-    //     height: 1.3rem;
-    //     float: left;
-    //     text-align: center;
-    //     border: #fff 1px solid;
-    //     border-radius: 3px;
-    //     background: rgba(73, 73, 73, 0.5); 
-    //     transition: float 0.3s ease-out;
-    //     p{
-    //         position: absolute;
-    //         margin: 0;
-    //         padding-left: 0.7rem;
-    //     }
-    //     &.current{
-    //         // float: right;
-    //         transition: float 0.3s ease-out;
-    //     }
-    // }
-    // #japaneseBtn{
-    //     padding: 4px;
-    //     width: 3rem;
-    //     float: right;
-    //     text-align: center;
-    //     transition: float 0.3s 0.15s ease-out;
-    //     p{
-    //         position: absolute;
-    //         margin: 0;
-    //         padding-left: 0.7rem;
-    //     }
-    //     // &.current{
-    //     //     float: left;
-    //     //     transition: float 0.3s ease-out;
-    //     // }
-    // }
     &.close{
-        // transition: all 0.1s ease-out;
-        // padding-right: 0;
         visibility: hidden;
-        // width: 0;
         opacity: 0;
-        // transition: all 0.3s ease-out;
     }
     &.dark{
         background: #fff;
         border: rgba(43, 43, 43, 0.87) 2px solid;
         color: #444;
-        #englishBtn{
-            color: #fff;
-            border: rgba(43, 43, 43, 0.7) 2px solid;
-        }
+        // #englishBtn{
+        //     color: #fff;
+        //     border: rgba(43, 43, 43, 0.7) 2px solid;
+        // }
         transition: opacity 0.3s 0.15s ease-out;
     }
 }

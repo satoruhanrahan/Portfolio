@@ -31,8 +31,13 @@ $(document).ready(function () {
   // const aboutMeLine2 = document.querySelector('#aboutMeLine2');
   // const contactLine2 = document.querySelector('#contactLine2');
   const lngBtn = document.querySelector('#languageBtn');
-  const engBtn = document.querySelector('#englishBtn');
-  const jpnBtn = document.querySelector('#japaneseBtn');
+  // const engBtn = document.querySelector('#engBtn');
+  // const jpnBtn = document.querySelector('#jpnBtn');
+  const lngSwitch = document.querySelector('#lngSwitch');
+  const webDeveloper = document.querySelector('#webDeveloper');
+  const name = document.querySelector('#name');
+  const alex = document.querySelector('#alex');
+  const viewMyProjects = document.querySelector('#viewMyProjects');
   
   //Menu button   //make button dark if in projects section and overlay menu is hidden or closed
   if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
@@ -73,11 +78,13 @@ $(document).ready(function () {
         // if (document.scrollingElement.scrollTop >= 583){
         //   btnLines.forEach(item => item.classList.add('dark'));
         // }
-        //make button dark if overlay menu is open
+        //make buttons dark if overlay menu is open
         if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
           btnLines.forEach(item => item.classList.add('dark'));
+          lngBtn.classList.add('dark');
         } else {
           btnLines.forEach(item => item.classList.remove('dark'));
+          lngBtn.classList.remove('dark');
         }
         //make menu dark if open in project section
         if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069)) {
@@ -114,11 +121,34 @@ $(document).ready(function () {
   let english = true;
   $("#languageBtn").on('click', function (event) {
     if(english){
-      engBtn.classList.remove('current');
-      jpnBtn.classList.add('current');
+      // engBtn.classList.remove('current');
+      // jpnBtn.classList.add('current');
+      lngSwitch.classList.add('japanese');
+      english = false;
+      changeToJapanese();
     }
-    
+    else{
+      // engBtn.classList.add('current');
+      // jpnBtn.classList.remove('current');
+      lngSwitch.classList.remove('japanese');
+      english = true;
+      changeToEnglish();
+    }
   });
+  
+  //change languages
+  function changeToJapanese(){
+    // webDeveloper.innerHTML = "ウェブデベロッパー";
+    // name.innerHTML = "悟ハンラハン";
+    // alex.innerHTML = "アレックス";
+    viewMyProjects.innerHTML = "プロジェクト紹介";
+  }
+  function changeToEnglish(){
+    // webDeveloper.innerHTML = "Web Developer";
+    // name.innerHTML = "Satoru Hanrahan";
+    // alex.innerHTML = "Alex";
+    viewMyProjects.innerHTML = "View My Projects";
+  }
 
   // Add smooth scrolling for links
   $("a").on('click', function (event) {
@@ -139,7 +169,7 @@ $(document).ready(function () {
     } // End if
   });
 
-  //Animations 
+  //my projects header animation
   if(document.scrollingElement.scrollTop > 20){
     $("#myProjectsHeader").addClass('not-visible');
     $("#myProjectsLine").addClass('not-visible');
@@ -162,6 +192,7 @@ $(document).ready(function () {
       menuOverlay.classList.add('close');
       navItems2.forEach(item => item.classList.add('close'));
       linkLines.forEach(item => item.classList.add('close'));
+      lngBtn.classList.add('close');
       showMenu = false;
     }
   });
@@ -175,7 +206,6 @@ $(document).ready(function () {
     } else {
       btnLines.forEach(item => item.classList.remove('dark'));
     }
-    console.log($(window).height()) //510 //1.22549019608
     //make language button dark if in projects section and overlay menu is hidden or closed
     if(position > ($(window).height() / 1.22549019608) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
       lngBtn.classList.add('dark');
