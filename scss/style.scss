@@ -9,7 +9,9 @@ $secondary-color: #f09865;
 @import 'config';
 @import 'home';
 @import 'projects';
+@import 'aboutMe';
 @import 'menu-overlay';
+@import 'mobile';
 
 html{
     position: absolute;
@@ -213,7 +215,5 @@ body {
         }
     }
 }
-
-
 
 @import 'mobile';

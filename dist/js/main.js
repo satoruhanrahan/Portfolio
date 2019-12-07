@@ -24,11 +24,11 @@ $(document).ready(function () {
   const navItems2 = document.querySelectorAll('.nav-item2');
   const homeLink2 = document.querySelector('#homeLink2');
   const projectsLink2 = document.querySelector('#projectsLink2');
-  // const aboutMeLink2 = document.querySelector('#aboutMeLink2');
+  const aboutMeLink2 = document.querySelector('#aboutMeLink2');
   // const contactLink2 = document.querySelector('#contactLink2');
   const homeLine2 = document.querySelector('#homeLine2');
   const projectsLine2 = document.querySelector('#projectsLine2');
-  // const aboutMeLine2 = document.querySelector('#aboutMeLine2');
+  const aboutMeLine2 = document.querySelector('#aboutMeLine2');
   // const contactLine2 = document.querySelector('#contactLine2');
   const lngBtn = document.querySelector('#languageBtn');
   // const engBtn = document.querySelector('#engBtn');
@@ -38,13 +38,17 @@ $(document).ready(function () {
   const name = document.querySelector('#name');
   const alex = document.querySelector('#alex');
   const viewMyProjects = document.querySelector('#viewMyProjects');
+  const projectsSection = document.querySelector('#projects');
+  const bio1 = document.querySelector('#bio1');
+  const bio2 = document.querySelector('#bio2');
+  const bio3 = document.querySelector('#bio3');
   
   //Menu button   //make button dark if in projects section and overlay menu is hidden or closed
-  if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
-    btnLines.forEach(item => item.classList.add('dark'));
-  } else {
-    btnLines.forEach(item => item.classList.remove('dark'));
-  }
+  // if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
+  //   btnLines.forEach(item => item.classList.add('dark'));
+  // } else {
+  //   btnLines.forEach(item => item.classList.remove('dark'));
+  // }
 
   // Menu Button
   let showMenu = false;
@@ -74,18 +78,44 @@ $(document).ready(function () {
         projectsLine2.classList.add('current');
         projectsLink.classList.add('current');
         projectsLine.classList.add('current');
-        //make button white if in project section
+        // // make button white if in project section
         // if (document.scrollingElement.scrollTop >= 583){
         //   btnLines.forEach(item => item.classList.add('dark'));
         // }
-        //make buttons dark if overlay menu is open
-        if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
+        // make buttons light if overlay menu open
+        if(($('#menu-overlay').css('visibility') == 'visible')) { // || menuOverlay.classList.contains('close')
+          btnLines.forEach(item => item.classList.remove('dark'));
+          lngBtn.classList.remove('dark');
+        } else {
+          btnLines.forEach(item => item.classList.add('dark'));
+          lngBtn.classList.add('dark');
+        }
+        // make buttons dark if in projects section
+        if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') != 'visible')) { // || menuOverlay.classList.contains('close')
           btnLines.forEach(item => item.classList.add('dark'));
           lngBtn.classList.add('dark');
         } else {
           btnLines.forEach(item => item.classList.remove('dark'));
           lngBtn.classList.remove('dark');
         }
+
+        //change menu btn to appropriate color depending on page
+        let menuBtnAbtMePos = 0.5060728744939271;
+        if($('#projects').height() > 820){
+          menuBtnAbtMePos = 0.4205921938088829;
+        }
+        if($('#projects').height() > 1000){
+          menuBtnAbtMePos = 0.3561253561253561;
+        }
+        if (document.scrollingElement.scrollTop >= ($(window).height() / menuBtnAbtMePos)){
+          btnLines.forEach(item => item.classList.add('dark'));
+          lngBtn.classList.add('dark');
+        }
+        if (document.scrollingElement.scrollTop > ($(window).height() / menuBtnAbtMePos)){
+          btnLines.forEach(item => item.classList.remove('dark'));
+          lngBtn.classList.remove('dark');
+        }
+
         //make menu dark if open in project section
         if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069)) {
           navItems.forEach(item => item.classList.add('dark'));
@@ -94,6 +124,21 @@ $(document).ready(function () {
           navItems.forEach(item => item.classList.remove('dark'));
           linkLines.forEach(item => item.classList.remove('dark'));
         }
+        //make menu light if open in about me section
+        if(document.scrollingElement.scrollTop > ($(window).height() / 0.67)) {
+          navItems.forEach(item => item.classList.remove('dark'));
+          linkLines.forEach(item => item.classList.remove('dark'));
+        } else {
+          navItems.forEach(item => item.classList.add('dark'));
+          linkLines.forEach(item => item.classList.add('dark'));
+        }
+      }
+      //make overlay menu about me link current if in about me page
+      if (document.scrollingElement.scrollTop >= 1500){
+        projectsLine2.classList.remove('current');
+        projectsLink2.classList.remove('current');
+        aboutMeLine2.classList.add('current');
+        aboutMeLink2.classList.add('current');
       }
       //show language button
       lngBtn.classList.remove('close');
@@ -106,10 +151,27 @@ $(document).ready(function () {
       navItems2.forEach(item => item.classList.add('close'));
       linkLines.forEach(item => item.classList.add('close'));
       menuOverlay.classList.add('close');
+      //change menu btn to appropriate color depending on page
+      let menuBtnAbtMePos = 0.5060728744939271;
+      let menuBtnProjPos = 1.0738831615120275;
+      // console.log($(window).height() / 1.0738831615120275)
+      if($('#projects').height() > 820){
+        menuBtnAbtMePos = 0.4205921938088829;
+      }
+      if($('#projects').height() > 1000){
+        menuBtnAbtMePos = 0.3561253561253561;
+      }
       //if in projects section
-      if (document.scrollingElement.scrollTop >= 583){
+      if (document.scrollingElement.scrollTop >= ($(window).height() / menuBtnProjPos)){
         btnLines.forEach(item => item.classList.add('dark'));
       }
+      //if in about me section section
+      if (document.scrollingElement.scrollTop >= ($(window).height() / menuBtnAbtMePos)){
+        btnLines.forEach(item => item.classList.remove('dark'));
+      }
+      // if (document.scrollingElement.scrollTop > ($(window).height() / menuBtnAbtMePos)){
+      //   btnLines.forEach(item => item.classList.remove('dark'));
+      // }
       //hide language button
       lngBtn.classList.add('close');
       // Set Menu State
@@ -142,12 +204,46 @@ $(document).ready(function () {
     // name.innerHTML = "悟ハンラハン";
     // alex.innerHTML = "アレックス";
     viewMyProjects.innerHTML = "プロジェクト紹介";
+    bio1.innerHTML = "ウェブとソフトウェアの開発に興味を持って、アプリケーションを作成するのが趣味である。"
+    + "スキルを向上させ、業界の最新のトレンドとテクノロジーをフォローするキャリアを期待しています。";
+    bio2.innerHTML = "現在日本在住で日本で就職して生活をしたいと思っている。英語を母国語とする"
+    + "ネイティブスピーカーとして、あるチームと協力し、質の高いウェブサイトとアプリケーションの制作を支援したいと考えている。";
+    bio3.innerHTML = "<span class=\"qualTitle\">資格:</span></br>"
+    + "<span class=\"qualItem\">ウーロンゴング大学コンピューターサイエンス学士　卒業</span>"
+    + "<span class=\"qualItem\">日本語能力試験N2　取得</span></br>"
+    + "<span class=\"qualTitle\">経験のある言語やテクノロジー: </span></br>"
+    + "<span class=\"qualItem\">PHP</span>　"
+    + "<span class=\"qualItem\">MySQL</span>　"
+    + "<span class=\"qualItem\">Nodejs</span>　"
+    + "<span class=\"qualItem\">MongoDB</span>　"
+    + "<span class=\"qualItem\">Vue</span>　"
+    + "<span class=\"qualItem\">Express</span>　"
+    + "<span class=\"qualItem\">Sass</span>　"
+    + "<span class=\"qualItem\">JQuery</span>　"
+    + "<span class=\"qualItem\">Materialize CSS</span>　"; 
   }
   function changeToEnglish(){
     // webDeveloper.innerHTML = "Web Developer";
     // name.innerHTML = "Satoru Hanrahan";
     // alex.innerHTML = "Alex";
     viewMyProjects.innerHTML = "View My Projects";
+    bio1.innerHTML = "Passionate about web and software development, I enjoy creating web applications and am looking "
+    + "forward to a career of improving my skills and following the latest trends and technologies of the industry.";
+    bio2.innerHTML = "I am currently located in Japan where I am planning to work and live. As a native english" 
+    + "　speaker with proficiency in Japanese, I hope to collaborate with people and help produce good quality websites. ";
+    bio3.innerHTML = "<span class=\"qualTitle\">Qualifications:</span></br>"
+    + "<span class=\"qualItem\">Bachelor Of Computer Science</span>"
+    + "<span class=\"qualItem\">Japanese Proficiency Language Certificate N2</span></br>"
+    + "<span class=\"qualTitle\">Experience working with: </span></br>"
+    + "<span class=\"qualItem\">PHP</span>"
+    + "<span class=\"qualItem\">MySQL</span>"
+    + "<span class=\"qualItem\">Nodejs</span>"
+    + "<span class=\"qualItem\">MongoDB</span>"
+    + "<span class=\"qualItem\">Vue</span>"
+    + "<span class=\"qualItem\">Express</span>"
+    + "<span class=\"qualItem\">Sass</span>"
+    + "<span class=\"qualItem\">JQuery</span>"
+    + "<span class=\"qualItem\">Materialize CSS</span>";
   }
 
   // Add smooth scrolling for links
@@ -200,40 +296,88 @@ $(document).ready(function () {
   //Change menu and button colour on scroll
   window.onscroll = function() {
     let position = document.scrollingElement.scrollTop;
-    //Menu button   //make menu button dark if in projects section and overlay menu is hidden or closed
-    if(position > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
-      btnLines.forEach(item => item.classList.add('dark'));
-    } else {
-      btnLines.forEach(item => item.classList.remove('dark'));
+    let menuBtnAbtMePos = 0.505;
+    let lngBtnAbtMePos = 0.53648068669;
+    let contactLnkPos = 775;
+    let abtMeLnkPos = 820;
+    let projectLnkPos = 870;
+    let homeLnkPos = 920;
+    if($('#projects').height() > 650){
+      menuBtnAbtMePos = 0.42087542087;
+      lngBtnAbtMePos = 0.44326241134;
+      contactLnkPos = 1025;
+      abtMeLnkPos = 1070;
+      projectLnkPos = 1125;
+      homeLnkPos = 1170;
     }
+    if($('#projects').height() > 1000){
+      menuBtnAbtMePos = 0.3561253561253561;
+    }
+    //Menu button 
+    //make menu button light if in home section and overlay menu is hidden or closed
+    if(position < ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
+      btnLines.forEach(item => item.classList.remove('dark'));
+    } else {
+      btnLines.forEach(item => item.classList.add('dark'));
+    }
+    //make menu button light if in about me section and overlay menu is hidden or closed
+    if(position > ($(window).height() / menuBtnAbtMePos) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
+      btnLines.forEach(item => item.classList.remove('dark'));
+    } 
+
+    //language button
     //make language button dark if in projects section and overlay menu is hidden or closed
     if(position > ($(window).height() / 1.22549019608) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
       lngBtn.classList.add('dark');
     } else {
       lngBtn.classList.remove('dark');
     }
+    //make language button light if in about me section and overlay menu is hidden or closed
+    if(position > ($(window).height() / lngBtnAbtMePos) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
+      lngBtn.classList.remove('dark');
+    }
+
+    //Change color of menu links in projects section and update current
     //contact link
     if(position > 130){
-      contactLink.classList.add('dark');
-      contactLine.classList.add('dark');
+      if(position > contactLnkPos){
+        contactLink.classList.remove('dark');
+        contactLine.classList.remove('dark');
+      }
+      else{
+        contactLink.classList.add('dark');
+        contactLine.classList.add('dark');
+      }
     } else {
       contactLink.classList.remove('dark');
       contactLine.classList.remove('dark');
     }
     //About Me Link
     if(position > 170){
-      aboutMeLink.classList.add('dark');
-      aboutMeLine.classList.add('dark');
+      if(position > abtMeLnkPos){
+        aboutMeLink.classList.remove('dark');
+        aboutMeLine.classList.remove('dark');
+      }
+      else{
+        aboutMeLink.classList.add('dark');
+        aboutMeLine.classList.add('dark');
+      }
     } else {
       aboutMeLink.classList.remove('dark');
       aboutMeLine.classList.remove('dark');
     }
     //Projects Link
     if(position > 220){
-      projectsLink.classList.add('dark');
-      projectsLine.classList.add('dark');
-      projectsLink.classList.add('current');
-      projectsLine.classList.add('current');
+      if(position > projectLnkPos){
+        projectsLink.classList.remove('dark');
+        projectsLine.classList.remove('dark');
+      }
+      else{
+        projectsLink.classList.add('dark');
+        projectsLine.classList.add('dark');
+        projectsLink.classList.add('current');
+        projectsLine.classList.add('current');
+      }
     } else {
       projectsLink.classList.remove('dark');
       projectsLine.classList.remove('dark');
@@ -242,15 +386,35 @@ $(document).ready(function () {
     }
     //Home Link
     if(position > 270){
-      homeLink.classList.add('dark');
-      homeLine.classList.add('dark');
-      homeLink.classList.remove('current');
-      homeLine.classList.remove('current');
+      if(position > homeLnkPos){
+        homeLink.classList.remove('dark');
+        homeLine.classList.remove('dark');
+      }
+      else{
+        homeLink.classList.add('dark');
+        homeLine.classList.add('dark');
+        homeLink.classList.remove('current');
+        homeLine.classList.remove('current');
+      }
     } else {
       homeLink.classList.remove('dark');
       homeLine.classList.remove('dark');
       homeLink.classList.add('current');
       homeLine.classList.add('current');
+    }
+    
+    //Update current link in about me section
+    if(position > abtMeLnkPos){
+      aboutMeLine.classList.add('current');
+      aboutMeLink.classList.add('current');
+    }
+    else{
+      aboutMeLine.classList.remove('current');
+      aboutMeLink.classList.remove('current');
+    }
+    if(position > projectLnkPos){
+      projectsLine.classList.remove('current');
+      projectsLink.classList.remove('current');
     }
   };
 });

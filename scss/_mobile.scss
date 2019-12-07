@@ -27,6 +27,37 @@ $secondary-color: #f09865;
             grid-template-columns: repeat(3, 1fr);
         }
     }
+
+    //about me section
+    #aboutMe{
+        .sm-heading {
+            top: 0.5rem;
+            right: 17rem;
+        }
+        #content{
+            #bio1{
+                height: 7rem;
+                margin-top: 6rem;
+                margin-right: 8rem;
+                margin-left: 5rem;
+                padding-right: 2rem;
+                padding-left: 2rem;
+            }
+            #bio2{
+                height: 6rem;
+                margin-right: 8rem;
+                margin-left: 5rem;
+                padding-right: 2rem;
+                padding-left: 2rem;
+            }
+            #bio3{
+                margin-left: 6rem;
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    //overlay menu
     #menu-overlay{
         position: absolute;
         visibility: hidden;
@@ -57,6 +88,25 @@ $secondary-color: #f09865;
     #menu-overlay{
         position: absolute;
         visibility: hidden;
+    }
+
+    //about me section
+    #aboutMe{
+        #content{
+            width: 100vw;
+            .sm-heading {
+                right: auto;
+                left: 45vw;
+                margin: auto;
+            }
+            #portrait-sml{
+                display: block;
+            }
+        }
+        #portrait-lrg{
+            display: none;
+            height: 0;
+        }
     }
 }
 
@@ -101,6 +151,40 @@ $secondary-color: #f09865;
             &.not-visible{
                 transform: translate3d(-300px, 0, 0);
             }
+        }
+    }
+
+    //about me section
+    #aboutMe{
+        #content{
+            width: 100vw;
+            align-content: center;
+            .sm-heading {
+                right: 0;
+                left: 0;
+            }
+            #bio1{
+                margin-right: 5rem;
+                margin-left: 4rem;
+            }
+            #bio2{
+                margin-right: 5rem;
+                margin-left: 4rem;
+            }
+            #bio3{
+                margin-left: auto;
+                margin-right: auto;
+                span{
+                    display: block;
+                }
+            }
+            .qualTitle{
+                margin-top: 2rem;
+            }
+        }
+        #portrait-lrg{
+            display: none;
+            height: 0;
         }
     }
 
@@ -159,6 +243,45 @@ $secondary-color: #f09865;
         }
     }
     
+    //about me section
+    #aboutMe{
+        #content{
+            width: 100vw;
+            align-content: center;
+            .sm-heading {
+                right: 0;
+                left: 0;
+                font-size: 2rem; 
+                margin-top: 1rem;
+            }
+            #bio1{
+                margin-right: 5rem;
+                margin-left: 4rem;
+                height: fit-content;
+            }
+            #bio2{
+                margin-right: 5rem;
+                margin-left: 4rem;
+                height: fit-content;
+            }
+            #bio3{
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 17rem; 
+                span{
+                    display: block;
+                }
+            }
+            .qualTitle{
+                margin-top: 2rem;
+            }
+        }
+        #portrait-lrg{
+            display: none;
+            height: 0;
+        }
+    }
+
     //Menu
     .menu{
         position: absolute;

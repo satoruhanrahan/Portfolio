@@ -6,7 +6,96 @@
 
 /* About Me Section */
 #aboutMe{
-    // position: relative;
-    height: 100vh;
-    background: rgba(43, 43, 43, 0.87); 
+    // position: absolute;
+    min-height: 100vh;
+    // padding-top: 1.7rem;
+    .sm-heading {
+        position: absolute;
+        right: 15rem;
+        margin: auto;
+        width: fit-content;
+        font-weight: 500; 
+        font-size: 3rem; 
+        color: #fff; 
+        // transition: all 0.8s 0.1s ease-out;
+        // will-change: transform opacity;
+        span{
+            color: #f09865; 
+        }
+    }
+    #portrait-lrg{
+        height: 100vh;
+        border-right: #f09865 1px solid;
+        position: absolute;
+    }
+    #content{
+        background: rgba(43, 43, 43, 0.87); 
+        min-height: 100vh;
+        width: 53vw;
+        right: 0rem;
+        position: absolute;
+        z-index: -1;
+        #portrait-sml {
+            width: 250px;
+            height: 250px;
+            background: url('../img/me-sml.png');
+            border-radius: 50%;
+            border: solid 3px #f09865;
+            // position: absolute;
+            float: left;
+            margin: 1rem;
+            margin-top: 2rem;
+            display: none;
+            // z-index: 1;
+        }
+        #bio1{
+            height: 8rem;
+            margin: auto;
+            margin-top: 5rem;
+            // width: 25rem;
+            margin-right: 20%;
+            margin-left: 3rem;
+            background: rgba(92, 92, 92, 0.5); 
+            color: #fff;
+            border: #f09865 1px solid;
+            text-align: center;
+            padding-top: 0.7rem;
+        }
+        #bio2{
+            height: 8rem;
+            margin: auto;
+            margin-top: 1rem;
+            // width: 25rem;
+            margin-right: 20%;
+            margin-left: 3.2rem;
+            // padding-right: 1rem;
+            background: rgba(92, 92, 92, 0.5); 
+            color: #fff;
+            border: #f09865 1px solid;
+            text-align: center;
+            padding: 0.7rem;
+        }
+        #bio3{
+            min-height: 7rem;
+            margin: auto;
+            margin-left: 4rem;
+            max-width: 30rem; 
+            color: #fff;
+            span{
+                font-size: 0.9rem;
+                // display: block;
+            }
+        }
+        .qualTitle{
+            display: inline-block;
+            font-weight: 500;
+            margin-top: 0.7rem;
+        }
+        .qualItem{
+            display: inline-block;
+            margin-top: 5px;
+            padding: 3px;
+            background: rgba(92, 92, 92, 0.5);
+        }
+    }
 }
