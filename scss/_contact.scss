@@ -1,0 +1,109 @@
+/*==================================================================================== 
+    Author: Alex Satoru Hanrahan
+    Created: 13/12/19
+    Last Edited: 26/11/19
+=====================================================================================*/
+
+#contact{
+    min-height: 100vh;
+    // position: relative;
+    #contactBackground{
+        height: 40vh;
+        background: url(../img/contact-background.jpg);
+        &:after {
+            left: 0;
+            content: '';
+            position: absolute;
+            width: 100vw;
+            height: 40vh;
+            background: rgba(43, 43, 43, 0.87); 
+        }
+    }
+    .sm-heading {
+        position: absolute;
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto;
+        width: fit-content;
+        font-weight: 500; 
+        font-size: 3rem; 
+        margin-top: 1.5rem;
+        color: #fff; 
+        z-index: 1;
+    }
+    #contactDescription{
+        position: absolute;
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto;
+        width: fit-content;
+        color: #fff; 
+        z-index: 1;
+        margin-top: 10rem;
+    }
+    #contactInfo{
+        margin-left: 10rem;
+        margin-right: 10rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-top: 2rem;
+        .infoElement{
+            margin-top: 3rem;
+            height: 8rem;
+            width: 15rem;
+            color: rgba(43, 43, 43, 0.87); 
+            text-align: center;
+            font-weight: 500; 
+            a{
+                margin-top: 1rem;
+                color: rgba(43, 43, 43, 0.87); 
+                text-decoration: none;
+            }
+            .infoIcon{
+                height: 5rem;
+                width: 5rem;
+                margin: auto;
+                border-radius: 50%;
+                border: solid 3px rgba(43, 43, 43, 0.87);
+                svg{
+                    padding-top: 1rem;
+                }
+                &.move{
+                    transform: translate3d(0, 0, 0);
+                    backface-visibility: hidden;
+                    perspective: 1000px;
+                }
+                &.move#email{
+                    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+                }
+                &.move#phone{
+                    animation: shake 0.82s 0.2s cubic-bezier(.36,.07,.19,.97) both;
+                }
+                &.move#linkedin{
+                    animation: shake 0.82s 0.4s cubic-bezier(.36,.07,.19,.97) both;
+                }
+                @keyframes shake {
+                    10%, 90% {
+                      transform: translate3d(-1px, 0, 0);
+                    }
+                    
+                    20%, 80% {
+                      transform: translate3d(2px, 0, 0);
+                    }
+                  
+                    30%, 50%, 70% {
+                      transform: translate3d(-4px, 0, 0);
+                    }
+                  
+                    40%, 60% {
+                      transform: translate3d(4px, 0, 0);
+                    }
+                }
+            }
+        }
+    }
+}

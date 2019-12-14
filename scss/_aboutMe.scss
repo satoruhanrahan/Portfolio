@@ -6,9 +6,10 @@
 
 /* About Me Section */
 #aboutMe{
-    // position: absolute;
     min-height: 100vh;
-    // padding-top: 1.7rem;
+    // position: relative;
+    // overflow: auto;
+    // display: block;
     .sm-heading {
         position: absolute;
         right: 15rem;

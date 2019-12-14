@@ -108,6 +108,14 @@ $secondary-color: #f09865;
             height: 0;
         }
     }
+
+    //contact section
+    // #contact{
+    //     #contactInfo{
+    //         margin-left: 2rem;
+    //         margin-right: 2rem;
+    //     }
+    // }
 }
 
 /* Tablets & Small Laptops */
@@ -132,7 +140,6 @@ $secondary-color: #f09865;
         align-items: center;
         text-align: center;
     }
-    
 
     //projects section
     #projects{
@@ -159,11 +166,16 @@ $secondary-color: #f09865;
         #content{
             width: 100vw;
             align-content: center;
+            position: relative;
+            padding-bottom: 1rem;
             .sm-heading {
+                padding-top: 1rem;
+                position: relative;
                 right: 0;
                 left: 0;
             }
             #bio1{
+                margin-top: 1rem;
                 margin-right: 5rem;
                 margin-left: 4rem;
             }
@@ -185,6 +197,14 @@ $secondary-color: #f09865;
         #portrait-lrg{
             display: none;
             height: 0;
+        }
+    }
+
+    //contact section
+    #contact{
+        #contactInfo{
+            margin-top: 0;
+            padding-bottom: 4rem;
         }
     }
 
@@ -232,11 +252,13 @@ $secondary-color: #f09865;
             }
         }
         .sm-heading {
+            font-size: 2rem;
             &.not-visible{
                 transform: translate3d(-200px, 0, 0);
             }
         }
         .underline{
+            width: 10rem;
             &.not-visible{
                 transform: translate3d(100px, 0, 0);
             }
@@ -248,13 +270,17 @@ $secondary-color: #f09865;
         #content{
             width: 100vw;
             align-content: center;
+            position: relative;
+            padding-bottom: 1rem;
             .sm-heading {
+                position: relative;
                 right: 0;
                 left: 0;
                 font-size: 2rem; 
-                margin-top: 1rem;
+                padding-top: 1rem;
             }
             #bio1{
+                margin-top: 1rem;
                 margin-right: 5rem;
                 margin-left: 4rem;
                 height: fit-content;
@@ -279,6 +305,29 @@ $secondary-color: #f09865;
         #portrait-lrg{
             display: none;
             height: 0;
+        }
+    }
+
+    #contact{
+        #contactBackground{
+            height: 30vh;
+            background: url(../img/contact-background.jpg);
+            &:after {
+                height: 30vh;
+            }
+            p{
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+        }
+        #contactDescription{
+            margin-top: 7rem;
+        }
+        .sm-heading{
+            font-size: 2rem;
+        }
+        #contactInfo{
+            margin-top: 0;
         }
     }
 
