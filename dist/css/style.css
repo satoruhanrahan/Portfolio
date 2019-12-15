@@ -198,7 +198,7 @@
   font-size: 3rem;
   color: #fff;
 }
-#aboutMe .sm-heading span {
+#aboutMe .sm-heading #headerMeTxt {
   color: #f09865;
 }
 #aboutMe #portrait-lrg {

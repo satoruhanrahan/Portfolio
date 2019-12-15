@@ -21,6 +21,10 @@ $(document).ready(function () {
   const projectsLine = document.querySelector('#projectsLine');
   const aboutMeLine = document.querySelector('#aboutMeLine');
   const contactLine = document.querySelector('#contactLine');
+  const homeLinkTxt = document.querySelector('#homeLinkText');
+  const projectsLinkTxt = document.querySelector('#projectsLinkText');
+  const aboutMeLinkTxt = document.querySelector('#aboutMeLinkText');
+  const contactLinkTxt = document.querySelector('#contactLinkText');
   //overlay menu
   const menuOverlay = document.querySelector('#menu-overlay');
   const navItems2 = document.querySelectorAll('.nav-item2');
@@ -36,14 +40,24 @@ $(document).ready(function () {
   // const engBtn = document.querySelector('#engBtn');
   // const jpnBtn = document.querySelector('#jpnBtn');
   const lngSwitch = document.querySelector('#lngSwitch');
+  //home page
   const webDeveloper = document.querySelector('#webDeveloper');
   const name = document.querySelector('#name');
   const alex = document.querySelector('#alex');
+  //projects page
   const viewMyProjects = document.querySelector('#viewMyProjects');
+  const txtOpen = document.querySelectorAll('.txtOpen');
   const projectsSection = document.querySelector('#projects');
+  //about me page
+  const headerAboutTxt = document.querySelector('#headerAboutTxt');
+  const headerMeTxt = document.querySelector('#headerMeTxt');
   const bio1 = document.querySelector('#bio1');
   const bio2 = document.querySelector('#bio2');
   const bio3 = document.querySelector('#bio3');
+  const projectsHeader = document.querySelector('#myProjectsHeader');
+  //contact page
+  const contactHeader = document.querySelector('#contactHeader');
+  const contactDescription = document.querySelector('#contactDescription');
   const infoIcon = document.querySelectorAll('.infoIcon');
   //get height of whole document
   const body = document.body,
@@ -236,10 +250,18 @@ $(document).ready(function () {
 
   //change languages
   function changeToJapanese() {
-    // webDeveloper.innerHTML = "ウェブデベロッパー";
-    // name.innerHTML = "悟ハンラハン";
-    // alex.innerHTML = "アレックス";
+    webDeveloper.innerHTML = "ウェブデベロッパー";
+    name.innerHTML = "悟ハンラハン";
+    alex.innerHTML = "アレックス";
     viewMyProjects.innerHTML = "プロジェクト紹介";
+    homeLinkTxt.innerHTML = "ホーム";
+    projectsLinkTxt.innerHTML = "プロジェクト";
+    txtOpen.forEach(item => item.innerHTML = "開く");  
+    aboutMeLinkTxt.innerHTML = "自己紹介";
+    contactLinkTxt.innerHTML = "連絡先";
+    projectsHeader.innerHTML = "プロジェクト";
+    headerAboutTxt.innerHTML = "自己";
+    headerMeTxt.innerHTML = "紹介";
     bio1.innerHTML = "ウェブとソフトウェアの開発に興味を持って、アプリケーションを作成するのが趣味である。"
       + "スキルを向上させ、業界の最新のトレンドとテクノロジーをフォローするキャリアを期待しています。";
     bio2.innerHTML = "現在日本在住で日本で就職して生活をしたいと思っている。英語を母国語とする"
@@ -257,12 +279,22 @@ $(document).ready(function () {
       + "<span class=\"qualItem\">Sass</span>　"
       + "<span class=\"qualItem\">JQuery</span>　"
       + "<span class=\"qualItem\">Materialize CSS</span>　";
+    contactHeader.innerHTML = "連絡先";
+    contactDescription.innerHTML = "気軽にメールまたはLinkedInでメッセージをお送りください。";
   }
   function changeToEnglish() {
-    // webDeveloper.innerHTML = "Web Developer";
-    // name.innerHTML = "Satoru Hanrahan";
-    // alex.innerHTML = "Alex";
+    webDeveloper.innerHTML = "Web Developer";
+    name.innerHTML = "Satoru Hanrahan";
+    alex.innerHTML = "Alex";
     viewMyProjects.innerHTML = "View My Projects";
+    homeLinkTxt.innerHTML = "Home";
+    projectsLinkTxt.innerHTML = "Projects";
+    txtOpen.forEach(item => item.innerHTML = "Open");  
+    aboutMeLinkTxt.innerHTML = "About Me";
+    contactLinkTxt.innerHTML = "Contact";
+    projectsHeader.innerHTML = "My Projects";
+    headerAboutTxt.innerHTML = "About ";
+    headerMeTxt.innerHTML = "Me";
     bio1.innerHTML = "Passionate about web and software development, I enjoy creating web applications and am looking "
       + "forward to a career of improving my skills and following the latest trends and technologies of the industry.";
     bio2.innerHTML = "I am currently located in Japan where I am planning to work and live. As a native english"
@@ -280,6 +312,8 @@ $(document).ready(function () {
       + "<span class=\"qualItem\">Sass</span>"
       + "<span class=\"qualItem\">JQuery</span>"
       + "<span class=\"qualItem\">Materialize CSS</span>";
+    contactHeader.innerHTML = "Contact";
+    contactDescription.innerHTML = "Please feel free to send me a message by email or on LinkedIn.";
   }
 
   // Add smooth scrolling for links
@@ -357,18 +391,6 @@ $(document).ready(function () {
       projectLnkPos2 = 1990;
       homeLnkPos2 = 2040;
     }
-    // console.log(position)
-    // console.log($(projects).height() + $(home).height())
-    // console.log(position)
-    // if ($('#projects').height() > 1000) {
-      // if(window.innerWidth < 307)
-      //   menuBtnAbtMePos = 0.36023054755043227;
-      // else
-        // menuBtnAbtMePos = 0.3561253561253561;
-      // menuBtnAbtMePos = 0.3659233847913093;
-      // menuBtnAbtMePos = 0.35551763367463024;
-      // menuBtnAbtMePos = 0.3608545034642032;
-    // }
     menuBtnAbtMePos = $(projects).height() + $(home).height();
     if ($('#projects').height() > 1000) {
       menuBtnAbtMePos = $(projects).height() + $(home).height() - 286;
@@ -380,11 +402,7 @@ $(document).ready(function () {
     } else {
       btnLines.forEach(item => item.classList.add('dark'));
     }
-    //make menu button light if in about me section and overlay menu is hidden or closed ********
-    
-    // if (position > ($(window).height() / menuBtnAbtMePos) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
-    //   btnLines.forEach(item => item.classList.remove('dark'));
-    // }
+    //make menu button light if in about me section and overlay menu is hidden or closed
     if (position > menuBtnAbtMePos && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
       btnLines.forEach(item => item.classList.remove('dark'));
     }
