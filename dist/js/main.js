@@ -21,10 +21,10 @@ $(document).ready(function () {
   const projectsLine = document.querySelector('#projectsLine');
   const aboutMeLine = document.querySelector('#aboutMeLine');
   const contactLine = document.querySelector('#contactLine');
-  const homeLinkTxt = document.querySelector('#homeLinkText');
-  const projectsLinkTxt = document.querySelector('#projectsLinkText');
-  const aboutMeLinkTxt = document.querySelector('#aboutMeLinkText');
-  const contactLinkTxt = document.querySelector('#contactLinkText');
+  const homeLinkTxt = document.querySelectorAll('.homeLinkText');
+  const projectsLinkTxt = document.querySelectorAll('.projectsLinkText');
+  const aboutMeLinkTxt = document.querySelectorAll('.aboutMeLinkText');
+  const contactLinkTxt = document.querySelectorAll('.contactLinkText');
   //overlay menu
   const menuOverlay = document.querySelector('#menu-overlay');
   const navItems2 = document.querySelectorAll('.nav-item2');
@@ -205,7 +205,6 @@ $(document).ready(function () {
     //change menu btn to appropriate color depending on page
     let menuBtnAbtMePos = 0.5060728744939271;
     let menuBtnProjPos = 1.0738831615120275;
-    // console.log($(window).height() / 1.0738831615120275)
     if ($('#projects').height() > 820) {
       menuBtnAbtMePos = 0.4205921938088829;
     }
@@ -220,9 +219,6 @@ $(document).ready(function () {
     if (document.scrollingElement.scrollTop >= ($(window).height() / menuBtnAbtMePos)) {
       btnLines.forEach(item => item.classList.remove('dark'));
     }
-    // if (document.scrollingElement.scrollTop > ($(window).height() / menuBtnAbtMePos)){
-    //   btnLines.forEach(item => item.classList.remove('dark'));
-    // }
     //hide language button
     lngBtn.classList.add('close');
     // Set Menu State
@@ -254,11 +250,11 @@ $(document).ready(function () {
     name.innerHTML = "悟ハンラハン";
     alex.innerHTML = "アレックス";
     viewMyProjects.innerHTML = "プロジェクト紹介";
-    homeLinkTxt.innerHTML = "ホーム";
-    projectsLinkTxt.innerHTML = "プロジェクト";
     txtOpen.forEach(item => item.innerHTML = "開く");  
-    aboutMeLinkTxt.innerHTML = "自己紹介";
-    contactLinkTxt.innerHTML = "連絡先";
+    homeLinkTxt.forEach(item => item.innerHTML = "ホーム");
+    projectsLinkTxt.forEach(item => item.innerHTML = "プロジェクト");
+    aboutMeLinkTxt.forEach(item => item.innerHTML = "自己紹介");
+    contactLinkTxt.forEach(item => item.innerHTML = "連絡先");
     projectsHeader.innerHTML = "プロジェクト";
     headerAboutTxt.innerHTML = "自己";
     headerMeTxt.innerHTML = "紹介";
@@ -287,11 +283,11 @@ $(document).ready(function () {
     name.innerHTML = "Satoru Hanrahan";
     alex.innerHTML = "Alex";
     viewMyProjects.innerHTML = "View My Projects";
-    homeLinkTxt.innerHTML = "Home";
-    projectsLinkTxt.innerHTML = "Projects";
-    txtOpen.forEach(item => item.innerHTML = "Open");  
-    aboutMeLinkTxt.innerHTML = "About Me";
-    contactLinkTxt.innerHTML = "Contact";
+    txtOpen.forEach(item => item.innerHTML = "Open"); 
+    homeLinkTxt.forEach(item => item.innerHTML = "Home");
+    projectsLinkTxt.forEach(item => item.innerHTML = "Projects");
+    aboutMeLinkTxt.forEach(item => item.innerHTML = "About Me");
+    contactLinkTxt.forEach(item => item.innerHTML = "Contact");
     projectsHeader.innerHTML = "My Projects";
     headerAboutTxt.innerHTML = "About ";
     headerMeTxt.innerHTML = "Me";

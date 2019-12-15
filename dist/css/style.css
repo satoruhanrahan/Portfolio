@@ -730,7 +730,7 @@
 
   #contact #contactBackground {
     height: 30vh;
-    background: url(../img/contact-background.jpg);
+    background: url(../img/contact-background-med.jpg);
   }
   #contact #contactBackground:after {
     height: 30vh;
@@ -837,7 +837,7 @@
 
   #contact #contactBackground {
     height: 30vh;
-    background: url(../img/contact-background.jpg);
+    background: url(../img/contact-background-sml.jpg);
   }
   #contact #contactBackground:after {
     height: 30vh;
@@ -1200,7 +1200,7 @@ body {
 
   #contact #contactBackground {
     height: 30vh;
-    background: url(../img/contact-background.jpg);
+    background: url(../img/contact-background-med.jpg);
   }
   #contact #contactBackground:after {
     height: 30vh;
@@ -1307,7 +1307,7 @@ body {
 
   #contact #contactBackground {
     height: 30vh;
-    background: url(../img/contact-background.jpg);
+    background: url(../img/contact-background-sml.jpg);
   }
   #contact #contactBackground:after {
     height: 30vh;
