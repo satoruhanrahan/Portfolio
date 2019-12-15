@@ -358,8 +358,8 @@ $(document).ready(function () {
       homeLnkPos2 = 2040;
     }
     // console.log(position)
-    console.log($(projects).height() + $(home).height())
-    console.log(position)
+    // console.log($(projects).height() + $(home).height())
+    // console.log(position)
     // if ($('#projects').height() > 1000) {
       // if(window.innerWidth < 307)
       //   menuBtnAbtMePos = 0.36023054755043227;
@@ -369,7 +369,10 @@ $(document).ready(function () {
       // menuBtnAbtMePos = 0.35551763367463024;
       // menuBtnAbtMePos = 0.3608545034642032;
     // }
-    menuBtnAbtMePos = $(projects).height() + $(home).height() + 30;
+    menuBtnAbtMePos = $(projects).height() + $(home).height();
+    if ($('#projects').height() > 1000) {
+      menuBtnAbtMePos = $(projects).height() + $(home).height() - 286;
+    }
     //Menu button 
     //make menu button light if in home section and overlay menu is hidden or closed
     if (position < ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
