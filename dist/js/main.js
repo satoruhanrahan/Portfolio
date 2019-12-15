@@ -387,9 +387,10 @@ $(document).ready(function () {
       projectLnkPos2 = 1990;
       homeLnkPos2 = 2040;
     }
-    menuBtnAbtMePos = $(projects).height() + $(home).height() + 30;
-    if ($('#projects').height() > 1000) {
-      menuBtnAbtMePos = $(projects).height() + $(home).height() + 286;
+    menuBtnAbtMePos = $(projects).height() + $(home).height() - 20;
+    console.log(position)
+    if ($(projects).height() > 1000) {
+      menuBtnAbtMePos = $(projects).height() + $(home).height() + 876;
     }
     //Menu button 
     //make menu button light if in home section and overlay menu is hidden or closed
