@@ -358,16 +358,18 @@ $(document).ready(function () {
       homeLnkPos2 = 2040;
     }
     // console.log(position)
-    console.log($(window).height() / position)
-    if ($('#projects').height() > 1000) {
+    console.log($(projects).height() + $(home).height())
+    console.log(position)
+    // if ($('#projects').height() > 1000) {
       // if(window.innerWidth < 307)
       //   menuBtnAbtMePos = 0.36023054755043227;
       // else
         // menuBtnAbtMePos = 0.3561253561253561;
       // menuBtnAbtMePos = 0.3659233847913093;
       // menuBtnAbtMePos = 0.35551763367463024;
-      menuBtnAbtMePos = 0.3608545034642032;
-    }
+      // menuBtnAbtMePos = 0.3608545034642032;
+    // }
+    menuBtnAbtMePos = $(projects).height() + $(home).height() + 30;
     //Menu button 
     //make menu button light if in home section and overlay menu is hidden or closed
     if (position < ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
@@ -377,12 +379,12 @@ $(document).ready(function () {
     }
     //make menu button light if in about me section and overlay menu is hidden or closed ********
     
-    if (position > ($(window).height() / menuBtnAbtMePos) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
-      btnLines.forEach(item => item.classList.remove('dark'));
-    }
-    // if (position > ($(window).height() > ($(home).height() + $(projects).height())) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
+    // if (position > ($(window).height() / menuBtnAbtMePos) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
     //   btnLines.forEach(item => item.classList.remove('dark'));
     // }
+    if (position > menuBtnAbtMePos && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
+      btnLines.forEach(item => item.classList.remove('dark'));
+    }
 
     //language button
     //make language button dark if in projects section and overlay menu is hidden or closed
