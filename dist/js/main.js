@@ -390,7 +390,7 @@ $(document).ready(function () {
     menuBtnAbtMePos = $(projects).height() + $(home).height() - 20;
     console.log(position)
     if ($(projects).height() > 1000) {
-      menuBtnAbtMePos = $(projects).height() + $(home).height() + 876;
+      menuBtnAbtMePos = $(projects).height() + $(home).height() + 315;
     }
     //Menu button 
     //make menu button light if in home section and overlay menu is hidden or closed
