@@ -49,17 +49,11 @@ $(document).ready(function () {
   const height = Math.max(body.scrollHeight, body.offsetHeight,
       html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-  //Menu button   //make button dark if in projects section and overlay menu is hidden or closed
-  // if(document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
-  //   btnLines.forEach(item => item.classList.add('dark'));
-  // } else {
-  //   btnLines.forEach(item => item.classList.remove('dark'));
-  // }
-
   // Menu Button
   let showMenu = false;
   menuBtn.addEventListener('click', toggleMenu);
 
+  //Open or close menu when menu button clicked
   function toggleMenu() {
     //open menu if closed
     if (!showMenu) {
@@ -173,7 +167,6 @@ $(document).ready(function () {
       aboutMeLine2.classList.add('current');
       aboutMeLink2.classList.add('current');
     }
-    console.log(document.scrollingElement.scrollTop)
     //make overlay menu contact link current if in contact page
     if (document.scrollingElement.scrollTop >= 2460) {
       aboutMeLine2.classList.remove('current');
@@ -363,7 +356,11 @@ $(document).ready(function () {
       homeLnkPos2 = 2040;
     }
     if ($('#projects').height() > 1000) {
-      menuBtnAbtMePos = 0.3561253561253561;
+      // if(window.innerWidth < 307)
+      //   menuBtnAbtMePos = 0.36023054755043227;
+      // else
+        // menuBtnAbtMePos = 0.3561253561253561;
+      menuBtnAbtMePos = 0.3659233847913093;
     }
     //Menu button 
     //make menu button light if in home section and overlay menu is hidden or closed
@@ -372,7 +369,9 @@ $(document).ready(function () {
     } else {
       btnLines.forEach(item => item.classList.add('dark'));
     }
-    //make menu button light if in about me section and overlay menu is hidden or closed
+    console.log($(window).height() / position);
+    //make menu button light if in about me section and overlay menu is hidden or closed ********
+    
     if (position > ($(window).height() / menuBtnAbtMePos) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
       btnLines.forEach(item => item.classList.remove('dark'));
     }

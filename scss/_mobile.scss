@@ -108,14 +108,6 @@ $secondary-color: #f09865;
             height: 0;
         }
     }
-
-    //contact section
-    // #contact{
-    //     #contactInfo{
-    //         margin-left: 2rem;
-    //         margin-right: 2rem;
-    //     }
-    // }
 }
 
 /* Tablets & Small Laptops */
@@ -136,7 +128,6 @@ $secondary-color: #f09865;
         }
     }
     main {
-        // padding-right: 4rem;
         align-items: center;
         text-align: center;
     }
@@ -200,14 +191,6 @@ $secondary-color: #f09865;
         }
     }
 
-    //contact section
-    // #contact{
-    //     #contactInfo{
-    //         margin-top: 0;
-    //         padding-bottom: 4rem;
-    //     }
-    // }
-
     #contact{
         #contactBackground{
             height: 30vh;
@@ -215,10 +198,6 @@ $secondary-color: #f09865;
             &:after {
                 height: 30vh;
             }
-            // p{
-            //     margin-left: 1rem;
-            //     margin-right: 1rem;
-            // }
         }
         #contactDescription{
             margin-top: 7rem;
