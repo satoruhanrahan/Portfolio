@@ -5,41 +5,40 @@
 =====================================================================================*/
 
 $(document).ready(function () {
-  // Select DOM Items
+  //** Select DOM Items **//
   const home = document.querySelector('#home');
   const projects = document.querySelector('#projects');
+  // Menu for laptops and wide screens
   const menuBtn = document.querySelector('.menu-btn');
-  //menu
-  const navItems = document.querySelectorAll('.nav-item');
+  const lngBtn = document.querySelector('#languageBtn');
+  const lngSwitch = document.querySelector('#lngSwitch');
   const btnLines = document.querySelectorAll('.btn-line');
-  const linkLines = document.querySelectorAll('.link-line');
+  // Links
+  const navItems = document.querySelectorAll('.nav-item');
   const homeLink = document.querySelector('#homeLink');
   const projectsLink = document.querySelector('#projectsLink');
   const aboutMeLink = document.querySelector('#aboutMeLink');
   const contactLink = document.querySelector('#contactLink');
+  // Lines under links
+  const linkLines = document.querySelectorAll('.link-line');
   const homeLine = document.querySelector('#homeLine');
   const projectsLine = document.querySelector('#projectsLine');
   const aboutMeLine = document.querySelector('#aboutMeLine');
   const contactLine = document.querySelector('#contactLine');
+  // Link text
   const homeLinkTxt = document.querySelectorAll('.homeLinkText');
   const projectsLinkTxt = document.querySelectorAll('.projectsLinkText');
   const aboutMeLinkTxt = document.querySelectorAll('.aboutMeLinkText');
   const contactLinkTxt = document.querySelectorAll('.contactLinkText');
-  //overlay menu
+  //overlay menu for smaller screens
   const menuOverlay = document.querySelector('#menu-overlay');
   const navItems2 = document.querySelectorAll('.nav-item2');
   const homeLink2 = document.querySelector('#homeLink2');
   const projectsLink2 = document.querySelector('#projectsLink2');
   const aboutMeLink2 = document.querySelector('#aboutMeLink2');
-  // const contactLink2 = document.querySelector('#contactLink2');
   const homeLine2 = document.querySelector('#homeLine2');
   const projectsLine2 = document.querySelector('#projectsLine2');
   const aboutMeLine2 = document.querySelector('#aboutMeLine2');
-  // const contactLine2 = document.querySelector('#contactLine2');
-  const lngBtn = document.querySelector('#languageBtn');
-  // const engBtn = document.querySelector('#engBtn');
-  // const jpnBtn = document.querySelector('#jpnBtn');
-  const lngSwitch = document.querySelector('#lngSwitch');
   //home page
   const webDeveloper = document.querySelector('#webDeveloper');
   const name = document.querySelector('#name');
@@ -47,7 +46,6 @@ $(document).ready(function () {
   //projects page
   const viewMyProjects = document.querySelector('#viewMyProjects');
   const txtOpen = document.querySelectorAll('.txtOpen');
-  const projectsSection = document.querySelector('#projects');
   //about me page
   const headerAboutTxt = document.querySelector('#headerAboutTxt');
   const headerMeTxt = document.querySelector('#headerMeTxt');
@@ -61,10 +59,11 @@ $(document).ready(function () {
   const infoIcon = document.querySelectorAll('.infoIcon');
   //get height of whole document
   const body = document.body,
-      html = document.documentElement;
+    html = document.documentElement;
   const height = Math.max(body.scrollHeight, body.offsetHeight,
-      html.clientHeight, html.scrollHeight, html.offsetHeight);
+    html.clientHeight, html.scrollHeight, html.offsetHeight);
 
+  //** Functions **//
   // Menu Button
   let showMenu = false;
   menuBtn.addEventListener('click', toggleMenu);
@@ -84,28 +83,107 @@ $(document).ready(function () {
   function displayMenu() {
     //add open tag
     menuBtn.classList.add('open');
-    //remove close tag
+    //remove close tags to open menu
     navItems.forEach(item => item.classList.remove('close'));
     navItems2.forEach(item => item.classList.remove('close'));
     linkLines.forEach(item => item.classList.remove('close'));
     menuOverlay.classList.remove('close');
-    //set current link in overlay menu
+    //make current link stick out
+    setCurrentLink();
+    //set colors to match page and location
+    setButtonColors();
+    setMenuColor();
+    //show language button
+    lngBtn.classList.remove('close');
+    // Set Menu State
+    showMenu = true;
+  }
+
+  //check current page and set link for the page as current
+  function setCurrentLink() {
+    //remove current tag for all links
     navItems.forEach(item => item.classList.remove('current'));
     navItems2.forEach(item => item.classList.remove('current'));
     linkLines.forEach(item => item.classList.remove('current'));
     //if in home section
-    if (document.scrollingElement.scrollTop < 315) {
-      homeLink2.classList.add('current');
-      homeLine2.classList.add('current');
-      homeLink.classList.add('current');
-      homeLine.classList.add('current');
-    }
-    //else if in projects section
-    else if (document.scrollingElement.scrollTop >= 315) {
-      projectsLink2.classList.add('current');
-      projectsLine2.classList.add('current');
-      projectsLink.classList.add('current');
-      projectsLine.classList.add('current');
+    if (document.scrollingElement.scrollTop < 315) 
+      setHomeCurrent();
+    //if in projects section
+    if (document.scrollingElement.scrollTop >= 315) 
+      setProjectsCurrent();
+    //make about me link current if in about me page
+    if (document.scrollingElement.scrollTop >= 980) 
+      setAboutMeCurrent();
+    //make overlay menu about me link current if in about me page
+    if (document.scrollingElement.scrollTop >= 1500) 
+      setOverlayAboutMeCurrent();
+    //make contact link current if in contact page
+    if (document.scrollingElement.scrollTop >= 1600) 
+      setContactCurrent();
+    //make overlay menu contact link current if in contact page
+    if (document.scrollingElement.scrollTop >= 2460) 
+      setOverlayContactCurrent();
+  }
+
+  //set home links as current
+  function setHomeCurrent(){
+    homeLink2.classList.add('current');
+    homeLine2.classList.add('current');
+    homeLink.classList.add('current');
+    homeLine.classList.add('current');
+  }
+
+  //set project links as current
+  function setProjectsCurrent(){
+    projectsLink2.classList.add('current');
+    projectsLine2.classList.add('current');
+    projectsLink.classList.add('current');
+    projectsLine.classList.add('current');
+  }
+
+  //set about me link in wide screen menu as current
+  function setAboutMeCurrent(){
+    projectsLine.classList.remove('current');
+    projectsLink.classList.remove('current');
+    aboutMeLine.classList.add('current');
+    aboutMeLink.classList.add('current');
+  }
+
+  //set contact link in wide screen menu as current
+  function setContactCurrent(){
+    contactLine.classList.add('current');
+    contactLink.classList.add('current');
+    aboutMeLine.classList.remove('current');
+    aboutMeLink.classList.remove('current');
+  }
+
+  //set about me link in overlay menu as current
+  function setOverlayAboutMeCurrent(){
+    projectsLine2.classList.remove('current');
+    projectsLink2.classList.remove('current');
+    aboutMeLine2.classList.add('current');
+    aboutMeLink2.classList.add('current');
+  }
+
+  //set contact link in overlay menu as current
+  function setOverlayContactCurrent(){
+    aboutMeLine2.classList.remove('current');
+    aboutMeLink2.classList.remove('current');
+    contactLine2.classList.add('current');
+    contactLink2.classList.add('current');
+  }
+
+  //set menu and language buttons as dark or light when opening menu 
+  function setButtonColors() {
+    //set buttons dark if in projects page
+    setBtnDarkInProjects();
+    //set buttons light if in about me page
+    setBtnLightInAboutMe();
+  }
+
+  //set buttons dark if in projects page
+  function setBtnDarkInProjects(){
+    if (document.scrollingElement.scrollTop >= 315) {
       // make buttons light if overlay menu open
       if (($('#menu-overlay').css('visibility') == 'visible')) {
         btnLines.forEach(item => item.classList.remove('dark'));
@@ -114,88 +192,57 @@ $(document).ready(function () {
         btnLines.forEach(item => item.classList.add('dark'));
         lngBtn.classList.add('dark');
       }
-      // make buttons dark if in projects section
+      // make buttons dark
       if (document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') != 'visible')) { // || menuOverlay.classList.contains('close')
         btnLines.forEach(item => item.classList.add('dark'));
       } else {
         btnLines.forEach(item => item.classList.remove('dark'));
         lngBtn.classList.remove('dark');
       }
-
-      //change menu btn to appropriate color depending on page
-      let menuBtnAbtMePos = 0.5060728744939271;
-      let menuContactPos = 0.35919540229885055;
-      if ($('#projects').height() > 820) {
-        menuBtnAbtMePos = 0.4205921938088829;
-        menuContactPos = 0.3159757330637007;
-      }
-      if ($('#projects').height() > 1000) {
-        menuBtnAbtMePos = 0.3561253561253561;
-      }
-      if (document.scrollingElement.scrollTop >= ($(window).height() / menuBtnAbtMePos)) {
-        btnLines.forEach(item => item.classList.add('dark'));
-        lngBtn.classList.add('dark');
-      }
-      if (document.scrollingElement.scrollTop > ($(window).height() / menuBtnAbtMePos)) {
-        btnLines.forEach(item => item.classList.remove('dark'));
-        lngBtn.classList.remove('dark');
-      }
-      //make menu dark if open in project section
-      if (document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069)) {
-        navItems.forEach(item => item.classList.add('dark'));
-        linkLines.forEach(item => item.classList.add('dark'));
-      } else {
-        navItems.forEach(item => item.classList.remove('dark'));
-        linkLines.forEach(item => item.classList.remove('dark'));
-      }
-      //make menu light if open in about me section
-      if (document.scrollingElement.scrollTop > ($(window).height() / 0.67)) {
-        navItems.forEach(item => item.classList.remove('dark'));
-        linkLines.forEach(item => item.classList.remove('dark'));
-      } else {
-        navItems.forEach(item => item.classList.add('dark'));
-        linkLines.forEach(item => item.classList.add('dark'));
-      }
-      //make menu dark if open in contact section
-      if (document.scrollingElement.scrollTop > ($(window).height() / menuContactPos)) {
-        navItems.forEach(item => item.classList.add('dark'));
-        linkLines.forEach(item => item.classList.add('dark'));
-      }
     }
-    //make about me link current if in about me page
-    if (document.scrollingElement.scrollTop >= 980) {
-      projectsLine.classList.remove('current');
-      projectsLink.classList.remove('current');
-      aboutMeLine.classList.add('current');
-      aboutMeLink.classList.add('current');
-    }
-    //make contact link current if in contact page
-    if (document.scrollingElement.scrollTop >= 1600) {
-      contactLine.classList.add('current');
-      contactLink.classList.add('current');
-      aboutMeLine.classList.remove('current');
-      aboutMeLink.classList.remove('current');
-    }
-    //make overlay menu about me link current if in about me page
-    if (document.scrollingElement.scrollTop >= 1500) {
-      projectsLine2.classList.remove('current');
-      projectsLink2.classList.remove('current');
-      aboutMeLine2.classList.add('current');
-      aboutMeLink2.classList.add('current');
-    }
-    //make overlay menu contact link current if in contact page
-    if (document.scrollingElement.scrollTop >= 2460) {
-      aboutMeLine2.classList.remove('current');
-      aboutMeLink2.classList.remove('current');
-      contactLine2.classList.add('current');
-      contactLink2.classList.add('current');
-    }
-    //show language button
-    lngBtn.classList.remove('close');
-    // Set Menu State
-    showMenu = true;
   }
 
+  //set button light in about me page
+  function setBtnLightInAboutMe(){
+    //number for calculating position to change button in about me page
+    let menuBtnAbtMePos = 0.5060728744939271;
+    // let menuBtnAbtMePos = 0.37577464788732395;
+    // if the project cards are in 2 rows
+    if ($('#projects').height() > 820) {
+      menuBtnAbtMePos = 0.4205921938088829;
+      menuContactPos = 0.3159757330637007;
+    }
+    // if the 3 project cards are in a vertical row
+    if ($('#projects').height() > 1000) 
+      // menuBtnAbtMePos = 0.3561253561253561;
+      menuBtnAbtMePos = 0.3749297358066329;
+    // make buttons dark if in about me page
+    if (document.scrollingElement.scrollTop > ($(window).height() / menuBtnAbtMePos)) {
+      btnLines.forEach(item => item.classList.remove('dark'));
+      lngBtn.classList.remove('dark');
+    }
+  }
+
+  //set the color of the menu when opening menu
+  function setMenuColor() {
+    //make menu dark if open in project section
+    if (document.scrollingElement.scrollTop > ($(window).height() / 1.0775862069)) {
+      navItems.forEach(item => item.classList.add('dark'));
+      linkLines.forEach(item => item.classList.add('dark'));
+    }
+    //make menu light if open in about me section
+    if (document.scrollingElement.scrollTop > ($(window).height() / 0.67)) {
+      navItems.forEach(item => item.classList.remove('dark'));
+      linkLines.forEach(item => item.classList.remove('dark'));
+    }
+    //make menu dark if open in contact section
+    if (document.scrollingElement.scrollTop > ($(window).height() / 0.35919540229885055)) {
+      navItems.forEach(item => item.classList.add('dark'));
+      linkLines.forEach(item => item.classList.add('dark'));
+    }
+  }
+
+  //closes menu
   function closeMenu() {
     menuBtn.classList.remove('open');
     navItems.forEach(item => item.classList.add('close'));
@@ -205,20 +252,17 @@ $(document).ready(function () {
     //change menu btn to appropriate color depending on page
     let menuBtnAbtMePos = 0.5060728744939271;
     let menuBtnProjPos = 1.0738831615120275;
-    if ($('#projects').height() > 820) {
+    if ($('#projects').height() > 820) 
       menuBtnAbtMePos = 0.4205921938088829;
-    }
-    if ($('#projects').height() > 1000) {
-      menuBtnAbtMePos = 0.3561253561253561;
-    }
+    if ($('#projects').height() > 1000) 
+      menuBtnAbtMePos = 0.375140607424072;
     //if in projects section
-    if (document.scrollingElement.scrollTop >= ($(window).height() / menuBtnProjPos)) {
+    if (document.scrollingElement.scrollTop >= ($(window).height() / menuBtnProjPos)) 
       btnLines.forEach(item => item.classList.add('dark'));
-    }
     //if in about me section section
-    if (document.scrollingElement.scrollTop >= ($(window).height() / menuBtnAbtMePos)) {
+    console.log($(window).height() / document.scrollingElement.scrollTop)
+    if (document.scrollingElement.scrollTop >= ($(window).height() / menuBtnAbtMePos)) 
       btnLines.forEach(item => item.classList.remove('dark'));
-    }
     //hide language button
     lngBtn.classList.add('close');
     // Set Menu State
@@ -244,13 +288,13 @@ $(document).ready(function () {
     }
   });
 
-  //change languages
+  //change language to Japanese
   function changeToJapanese() {
     webDeveloper.innerHTML = "ウェブデベロッパー";
     name.innerHTML = "悟ハンラハン";
     alex.innerHTML = "アレックス";
     viewMyProjects.innerHTML = "プロジェクト紹介";
-    txtOpen.forEach(item => item.innerHTML = "開く");  
+    txtOpen.forEach(item => item.innerHTML = "開く");
     homeLinkTxt.forEach(item => item.innerHTML = "ホーム");
     projectsLinkTxt.forEach(item => item.innerHTML = "プロジェクト");
     aboutMeLinkTxt.forEach(item => item.innerHTML = "自己紹介");
@@ -278,12 +322,14 @@ $(document).ready(function () {
     contactHeader.innerHTML = "連絡先";
     contactDescription.innerHTML = "気軽にメールまたはLinkedInでメッセージをお送りください。";
   }
+
+  //change language to english
   function changeToEnglish() {
     webDeveloper.innerHTML = "Web Developer";
     name.innerHTML = "Satoru Hanrahan";
     alex.innerHTML = "Alex";
     viewMyProjects.innerHTML = "View My Projects";
-    txtOpen.forEach(item => item.innerHTML = "Open"); 
+    txtOpen.forEach(item => item.innerHTML = "Open");
     homeLinkTxt.forEach(item => item.innerHTML = "Home");
     projectsLinkTxt.forEach(item => item.innerHTML = "Projects");
     aboutMeLinkTxt.forEach(item => item.innerHTML = "About Me");
@@ -331,7 +377,7 @@ $(document).ready(function () {
     } // End if
   });
 
-  //my projects header animation
+  //animation for the projects page header
   if (document.scrollingElement.scrollTop > 20) {
     $("#myProjectsHeader").addClass('not-visible');
     $("#myProjectsLine").addClass('not-visible');
@@ -362,20 +408,23 @@ $(document).ready(function () {
   //Change menu and button colour on scroll
   window.onscroll = function () {
     let position = document.scrollingElement.scrollTop;
+    //numbers for calculating positions
     let menuBtnAbtMePos = 0.505;
     let lngBtnAbtMePos = 0.53648068669;
+    //positions for changing menu links
     let contactLnkPos = 775;
     let abtMeLnkPos = 820;
     let projectLnkPos = 870;
     let homeLnkPos = 920;
-    //positions for changing links in contact page
     let contactPagePos = 1400;
+    //positions for changing overlay menu links
     let contactLnkPos2 = 1650;
     let abtMeLnkPos2 = 1700;
     let projectLnkPos2 = 1740;
     let homeLnkPos2 = 1790;
+    //if the project cards are in 2 rows
     if ($('#projects').height() > 650) {
-      menuBtnAbtMePos = 0.42087542087;
+      // menuBtnAbtMePos = 0.42087542087;
       lngBtnAbtMePos = 0.44326241134;
       contactLnkPos = 1025;
       abtMeLnkPos = 1070;
@@ -388,10 +437,6 @@ $(document).ready(function () {
       homeLnkPos2 = 2040;
     }
     menuBtnAbtMePos = $(projects).height() + $(home).height() + 30;
-    // console.log($(projects).height() + $(home).height())
-    // if ($(projects).height() > 1000) {
-    //   menuBtnAbtMePos = $(projects).height() + $(home).height() + 315;
-    // }
     //Menu button 
     //make menu button light if in home section and overlay menu is hidden or closed
     if (position < ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
