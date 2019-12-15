@@ -392,6 +392,7 @@
   top: 0;
   left: 0;
   transition: all 0.3s ease-out;
+  z-index: 2;
 }
 #menu-overlay.close {
   width: 0;
@@ -727,9 +728,22 @@
     height: 0;
   }
 
+  #contact #contactBackground {
+    height: 30vh;
+    background: url(../img/contact-background.jpg);
+  }
+  #contact #contactBackground:after {
+    height: 30vh;
+  }
+  #contact #contactDescription {
+    margin-top: 7rem;
+  }
+  #contact .sm-heading {
+    font-size: 2rem;
+  }
   #contact #contactInfo {
     margin-top: 0;
-    padding-bottom: 4rem;
+    margin-bottom: 1rem;
   }
 
   .menu {
@@ -1184,9 +1198,22 @@ body {
     height: 0;
   }
 
+  #contact #contactBackground {
+    height: 30vh;
+    background: url(../img/contact-background.jpg);
+  }
+  #contact #contactBackground:after {
+    height: 30vh;
+  }
+  #contact #contactDescription {
+    margin-top: 7rem;
+  }
+  #contact .sm-heading {
+    font-size: 2rem;
+  }
   #contact #contactInfo {
     margin-top: 0;
-    padding-bottom: 4rem;
+    margin-bottom: 1rem;
   }
 
   .menu {

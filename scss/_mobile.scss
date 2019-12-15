@@ -201,10 +201,34 @@ $secondary-color: #f09865;
     }
 
     //contact section
+    // #contact{
+    //     #contactInfo{
+    //         margin-top: 0;
+    //         padding-bottom: 4rem;
+    //     }
+    // }
+
     #contact{
+        #contactBackground{
+            height: 30vh;
+            background: url(../img/contact-background.jpg);
+            &:after {
+                height: 30vh;
+            }
+            // p{
+            //     margin-left: 1rem;
+            //     margin-right: 1rem;
+            // }
+        }
+        #contactDescription{
+            margin-top: 7rem;
+        }
+        .sm-heading{
+            font-size: 2rem;
+        }
         #contactInfo{
             margin-top: 0;
-            padding-bottom: 4rem;
+            margin-bottom: 1rem;
         }
     }
 

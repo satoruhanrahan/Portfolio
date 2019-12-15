@@ -70,6 +70,7 @@ $(document).ready(function () {
     }
   }
 
+  //Opens menu
   function displayMenu() {
     //add open tag
     menuBtn.classList.add('open');
@@ -113,8 +114,10 @@ $(document).ready(function () {
 
       //change menu btn to appropriate color depending on page
       let menuBtnAbtMePos = 0.5060728744939271;
+      let menuContactPos = 0.35919540229885055;
       if ($('#projects').height() > 820) {
         menuBtnAbtMePos = 0.4205921938088829;
+        menuContactPos = 0.3159757330637007;
       }
       if ($('#projects').height() > 1000) {
         menuBtnAbtMePos = 0.3561253561253561;
@@ -144,7 +147,7 @@ $(document).ready(function () {
         linkLines.forEach(item => item.classList.add('dark'));
       }
       //make menu dark if open in contact section
-      if (document.scrollingElement.scrollTop > ($(window).height() / 0.35919540229885055)) {
+      if (document.scrollingElement.scrollTop > ($(window).height() / menuContactPos)) {
         navItems.forEach(item => item.classList.add('dark'));
         linkLines.forEach(item => item.classList.add('dark'));
       }
@@ -156,6 +159,7 @@ $(document).ready(function () {
       aboutMeLine.classList.add('current');
       aboutMeLink.classList.add('current');
     }
+    //make contact link current if in contact page
     if (document.scrollingElement.scrollTop >= 1600) {
       contactLine.classList.add('current');
       contactLink.classList.add('current');
@@ -168,6 +172,14 @@ $(document).ready(function () {
       projectsLink2.classList.remove('current');
       aboutMeLine2.classList.add('current');
       aboutMeLink2.classList.add('current');
+    }
+    console.log(document.scrollingElement.scrollTop)
+    //make overlay menu contact link current if in contact page
+    if (document.scrollingElement.scrollTop >= 2460) {
+      aboutMeLine2.classList.remove('current');
+      aboutMeLink2.classList.remove('current');
+      contactLine2.classList.add('current');
+      contactLink2.classList.add('current');
     }
     //show language button
     lngBtn.classList.remove('close');
