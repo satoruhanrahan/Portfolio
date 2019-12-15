@@ -387,10 +387,10 @@ $(document).ready(function () {
       projectLnkPos2 = 1990;
       homeLnkPos2 = 2040;
     }
-    menuBtnAbtMePos = $(projects).height() + $(home).height();
-    // if ($('#projects').height() > 1000) {
-    //   menuBtnAbtMePos = $(projects).height() + $(home).height() - 286;
-    // }
+    menuBtnAbtMePos = $(projects).height() + $(home).height() + 30;
+    if ($('#projects').height() > 1000) {
+      menuBtnAbtMePos = $(projects).height() + $(home).height() + 286;
+    }
     //Menu button 
     //make menu button light if in home section and overlay menu is hidden or closed
     if (position < ($(window).height() / 1.0775862069) && ($('#menu-overlay').css('visibility') == 'hidden' || menuOverlay.classList.contains('close'))) {
