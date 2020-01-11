@@ -11,10 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="/css/all.css"> -->
-    <!-- <script src="https://kit.fontawesome.com/a3cf383070.js" crossorigin="anonymous"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <!-- <script src="js/toggleMenu.js"></script> -->
     <script src="js/main.js"></script>
     <script src="js/font-awesome.js"></script>
     <title>My Portfolio</title>
@@ -24,7 +21,8 @@
 
     <!-- Home section -->
     <main id="home">
-        <h1 class="lg-heading"><span id="alex" class="text-secondary">Alex </span><span id="name" >Satoru Hanrahan</span></h1>
+        <h1 class="lg-heading"><span id="alex" class="text-secondary">Alex </span><span id="name">Satoru Hanrahan</span>
+        </h1>
         <h2 id="webDeveloper" class="sm-heading">Web Developer</h2>
         <div class="icons">
             <a href="https://www.facebook.com/satoru.hanrahan">
@@ -51,17 +49,25 @@
             <div class="card">
                 <p>Child'sPlay</p>
                 <img src="img/Childsplay.gif" alt="Childsplay gif">
-                <div><i class="fas fa-external-link-alt"></i>&nbsp;<span class="txtOpen">Open</span></div>
-                <div><i class="fab fa-github fa-2x"></i>GitHub</div>
+                <a href="http://childsplay.epizy.com/" target="_blank">
+                    <div><i class="fas fa-external-link-alt"></i>&nbsp;<span class="txtOpen">Open</span></div>
+                </a>
+                <a href="https://github.com/therealjuliazhang/ChildsPlay" target="_blank">
+                    <div><i class="fab fa-github fa-2x"></i>GitHub</div>
+                </a>
             </div>
             <div class="card">
                 <p>Kanji Stories</p>
                 <img src="img/Kanjistories.gif" alt="">
-                <div><i class="fas fa-external-link-alt"></i>&nbsp;<span class="txtOpen">Open</span></div>
-                <div><i class="fab fa-github fa-2x"></i>GitHub</div>
+                <a href="http://kanjistory.herokuapp.com/" target="_blank">
+                    <div><i class="fas fa-external-link-alt"></i>&nbsp;<span class="txtOpen">Open</span></div>
+                </a>
+                <a href="https://github.com/satoruhanrahan/Kanji_Stories" target="_blank">
+                    <div><i class="fab fa-github fa-2x"></i>GitHub</div>
+                </a>
             </div>
             <div class="card">
-                <p>Project 3 (not completed)</p>
+                <p>Project 3</p>
                 <img src="img/AdHawk-Web-App.gif" alt="">
                 <div><i class="fas fa-external-link-alt"></i>&nbsp;<span class="txtOpen">Open</span></div>
                 <div><i class="fab fa-github fa-2x"></i>GitHub</div>
@@ -76,12 +82,12 @@
             <div class="sm-heading"><span id="headerAboutTxt">About </span><span id="headerMeTxt">Me</span></div>
             <div id="portrait-sml"></div>
             <div id="bio1">
-                Passionate about web and software development, I enjoy creating web applications and am looking forward 
-                to a career of improving my skills and following the latest trends and technologies of the industry. 
+                Passionate about web and software development, I enjoy creating web applications and am looking forward
+                to a career of improving my skills and following the latest trends and technologies of the industry.
             </div>
             <div id="bio2">
-                I am currently located in Japan where I am planning to work and live. As a native english speaker 
-                with proficiency in Japanese, I hope to collaborate with people and help produce good quality websites.  
+                I am currently located in Japan where I am planning to work and live. As a native english speaker
+                with proficiency in Japanese, I hope to collaborate with people and help produce good quality websites.
             </div>
             <div id="bio3">
                 <span class="qualTitle">Qualifications:</span></br>
@@ -94,17 +100,6 @@
                 <span class="qualItem">MongoDB</span>
                 <span class="qualItem">Vue</span>
                 <span class="qualItem">Express</span>
-                <span class="qualItem">Sass</span>
-                <span class="qualItem">JQuery</span>
-                <span class="qualItem">Materialize CSS</span>
-                <!-- <img src="img/PHP-logo.png" alt="PHP-logo">
-                <img src="img/mySql.png" alt="mySql-logo">
-                <img src="img/nodejs.png" alt="nodejs-logo">
-                <img src="img/mongodb-logo.png" alt="mongodb-logo">
-                <img src="img/Vue-logo.png" alt="Vue-logo">
-                <img src="img/sass.png" alt="sass">
-                <img src="img/jquery-logo.png" alt="jquery-logo">
-                <img src="img/materialize.png" alt="materialize-logo"> -->
             </div>
         </div>
     </main>
@@ -118,7 +113,7 @@
             <div class="infoElement">
                 <div class="infoIcon" id="email">
                     <i class="fas fa-envelope fa-3x"></i>
-                    
+
                 </div>
                 <p>satoruhanrahan@hotmail.com</p>
             </div>
@@ -132,7 +127,9 @@
                 <div class="infoIcon" id="linkedin">
                     <i class="fab fa-linkedin fa-3x"></i>
                 </div>
-                <p><a href="https://www.linkedin.com/in/alex-hanrahan-9aa353168">https://www.linkedin.com/in/alex-hanrahan-9aa353168</a></p>
+                <p><a
+                        href="https://www.linkedin.com/in/alex-hanrahan-9aa353168">https://www.linkedin.com/in/alex-hanrahan-9aa353168</a>
+                </p>
             </div>
         </div>
     </main>
@@ -153,7 +150,7 @@
             <div id="homeLine" class="link-line current close"></div>
             <li id="projectsLink" class="nav-item close">
                 <a href="#projects" style="color: inherit; text-decoration: none;">
-                    <span class="projectsLinkText">Projects</span> 
+                    <span class="projectsLinkText">Projects</span>
                 </a>
             </li>
             <div id="projectsLine" class="link-line close"></div>

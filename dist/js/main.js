@@ -296,10 +296,10 @@ $(document).ready(function () {
     projectsHeader.innerHTML = "プロジェクト";
     headerAboutTxt.innerHTML = "自己";
     headerMeTxt.innerHTML = "紹介";
-    bio1.innerHTML = "ウェブとソフトウェアの開発に興味を持って、アプリケーションを作成するのが趣味である。"
-      + "スキルを向上させ、業界の最新のトレンドとテクノロジーをフォローするキャリアを期待しています。";
-    bio2.innerHTML = "現在日本在住で日本で就職して生活をしたいと思っている。英語を母国語とする"
-      + "ネイティブスピーカーとして、あるチームと協力し、質の高いウェブサイトとアプリケーションの制作を支援したいと考えている。";
+    bio1.innerHTML = "ウェブとソフトウェアの開発に興味を持って、アプリケーションを作成するのが趣味です。"
+      + "スキルを向上させ、業界の最新のトレンドとテクノロジーをフォローするキャリアを期待しております。";
+    bio2.innerHTML = "現在日本在住で日本で就職して生活をしたいと思っています。英語を母国語とする"
+      + "ネイティブスピーカーとして、あるチームと協力し、質の高いウェブサイトとアプリケーションの制作を支援したいと考えています。";
     bio3.innerHTML = "<span class=\"qualTitle\">資格:</span></br>"
       + "<span class=\"qualItem\">ウーロンゴング大学コンピューターサイエンス学士　卒業</span>"
       + "<span class=\"qualItem\">日本語能力試験N2　取得</span></br>"
@@ -345,9 +345,6 @@ $(document).ready(function () {
       + "<span class=\"qualItem\">MongoDB</span>"
       + "<span class=\"qualItem\">Vue</span>"
       + "<span class=\"qualItem\">Express</span>"
-      + "<span class=\"qualItem\">Sass</span>"
-      + "<span class=\"qualItem\">JQuery</span>"
-      + "<span class=\"qualItem\">Materialize CSS</span>";
     contactHeader.innerHTML = "Contact";
     contactDescription.innerHTML = "Please feel free to send me a message by email or on LinkedIn.";
   }
