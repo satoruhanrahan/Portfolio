@@ -41,10 +41,6 @@ function toggleMenu() {
         projectsLine2.classList.add('current');
         projectsLink.classList.add('current');
         projectsLine.classList.add('current');
-        // // make button white if in project section
-        // if (document.scrollingElement.scrollTop >= 583){
-        //   btnLines.forEach(item => item.classList.add('dark'));
-        // }
         // make buttons light if overlay menu open
         if(($('#menu-overlay').css('visibility') == 'visible')) { // || menuOverlay.classList.contains('close')
           btnLines.forEach(item => item.classList.remove('dark'));
@@ -117,7 +113,6 @@ function toggleMenu() {
       //change menu btn to appropriate color depending on page
       let menuBtnAbtMePos = 0.5060728744939271;
       let menuBtnProjPos = 1.0738831615120275;
-      // console.log($(window).height() / 1.0738831615120275)
       if($('#projects').height() > 820){
         menuBtnAbtMePos = 0.4205921938088829;
       }
@@ -132,9 +127,6 @@ function toggleMenu() {
       if (document.scrollingElement.scrollTop >= ($(window).height() / menuBtnAbtMePos)){
         btnLines.forEach(item => item.classList.remove('dark'));
       }
-      // if (document.scrollingElement.scrollTop > ($(window).height() / menuBtnAbtMePos)){
-      //   btnLines.forEach(item => item.classList.remove('dark'));
-      // }
       //hide language button
       lngBtn.classList.add('close');
       // Set Menu State

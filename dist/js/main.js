@@ -206,7 +206,6 @@ $(document).ready(function () {
   function setBtnLightInAboutMe(){
     //number for calculating position to change button in about me page
     let menuBtnAbtMePos = 0.5060728744939271;
-    // let menuBtnAbtMePos = 0.37577464788732395;
     // if the project cards are in 2 rows
     if ($('#projects').height() > 820) {
       menuBtnAbtMePos = 0.4205921938088829;
@@ -214,7 +213,6 @@ $(document).ready(function () {
     }
     // if the 3 project cards are in a vertical row
     if ($('#projects').height() > 1000) 
-      // menuBtnAbtMePos = 0.3561253561253561;
       menuBtnAbtMePos = 0.3749297358066329;
     // make buttons dark if in about me page
     if (document.scrollingElement.scrollTop > ($(window).height() / menuBtnAbtMePos)) {
@@ -273,15 +271,11 @@ $(document).ready(function () {
   let english = true;
   $("#languageBtn").on('click', function (event) {
     if (english) {
-      // engBtn.classList.remove('current');
-      // jpnBtn.classList.add('current');
       lngSwitch.classList.add('japanese');
       english = false;
       changeToJapanese();
     }
     else {
-      // engBtn.classList.add('current');
-      // jpnBtn.classList.remove('current');
       lngSwitch.classList.remove('japanese');
       english = true;
       changeToEnglish();
@@ -424,7 +418,6 @@ $(document).ready(function () {
     let homeLnkPos2 = 1790;
     //if the project cards are in 2 rows
     if ($('#projects').height() > 650) {
-      // menuBtnAbtMePos = 0.42087542087;
       lngBtnAbtMePos = 0.44326241134;
       contactLnkPos = 1025;
       abtMeLnkPos = 1070;

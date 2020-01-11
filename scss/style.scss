@@ -36,19 +36,11 @@ body {
     line-height: 1.5; 
     overflow-x: hidden;
     width: 100vw;
-    // position: fixed;
-    // top: 0;
-    // bottom: 0;
-    // right: 0;
-    // left: 0;
-
-    
 }
 
 /* Language Button */
 #languageBtn{
     position: fixed;
-    // display: inline-block;
     right: 1.3rem;
     top: 6rem;
     z-index: 3;
@@ -96,10 +88,6 @@ body {
         background: #fff;
         border: rgba(43, 43, 43, 0.87) 2px solid;
         color: #444;
-        // #englishBtn{
-        //     color: #fff;
-        //     border: rgba(43, 43, 43, 0.7) 2px solid;
-        // }
         transition: opacity 0.3s 0.15s ease-out;
     }
 }
@@ -149,9 +137,7 @@ body {
     width: 10rem;
     height: 10rem;
     right: 0px;
-    // top: 19rem;
     bottom: 10rem;
-    // display: inline-block;
     color: #fff;
     ul{
         position: absolute;
@@ -172,10 +158,8 @@ body {
                 color: #444;
             }
             &.close{
-                // transition: all 0.1s ease-out;
                 padding-left: 80px;
                 visibility: hidden;
-                // width: 0;
                 opacity: 0;
                 transition: all 0.3s ease-out;
             }
